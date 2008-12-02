@@ -1,0 +1,8 @@
+File list and information:
+------------------------------
+
+results.rhtml
+Quick-search results or a message saying none were found.
+
+full_results.rhtml
+A longer list of results.

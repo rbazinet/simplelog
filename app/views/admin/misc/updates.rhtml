@@ -1,0 +1,29 @@
+<% @updates_pref = get_pref('CHECK_FOR_UPDATES') -%>
+<%= render :partial => 'admin/misc/subnav', :locals => {:hp => false, :ud => true} %>
+
+<div id="header">
+	<h1>Check for updates</h1>
+	<h2>&nbsp;</h2><br/>
+</div>
+
+<table class="home" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="no_pad">
+			<p>Want to stay up to date? Check for updates to SimpleLog so you're always running the newest version. None of your personal information will be sent. This may take a few moments, please be patient.</p>
+			
+			<% form_remote_tag(:html => {:id => 'update_form'},
+								:update => 'update_detail',
+								:complete => 'update_done(\'ubutton\', \'update_status\');',
+								:loading => 'updating(\'' + Site.full_url + '\', \'ubutton\', \'update_status\');',
+								:url => Site.full_url + '/admin/updates/do') do %>
+				<div id="update_control">
+					<div id="update_button">
+						<%= submit_tag 'Check for Updates', :id => 'ubutton' %>
+					</div>
+					<div id="update_status">Awaiting action.</div><br/>
+				</div>
+				<div id="update_detail"></div>
+			<% end -%>
+		</td>
+	</tr>
+</table>

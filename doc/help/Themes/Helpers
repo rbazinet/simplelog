@@ -1,0 +1,319 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>SimpleLog wiki | Themes / Helpers </title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel='stylesheet' href='../pmwiki/pub/skins/pmwiki/pmwiki.css' type='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<!--PageHeaderFmt-->
+  <div id='wikilogo'><a href='../index.html'><img src='../pmwiki/pub/skins/pmwiki/pmwiki-32.gif'
+    alt='SimpleLog wiki' border='0' /></a></div>
+  <div id='wikihead'>
+  <!-- <form action='http://wiki.simplelog.net'>
+    <span class='headnav'><a href='http://wiki.simplelog.net/Themes/RecentChanges'
+      accesskey='c'>Recent Changes</a> -</span>
+    <input type='hidden' name='n' value='Themes.Helpers' />
+    <input type='hidden' name='action' value='search' />
+    <a href='http://wiki.simplelog.net/Site/Search'>Search</a>:
+    <input type='text' name='q' value='' class='inputbox searchbox' />
+    <input type='submit' class='inputbutton searchbutton'
+      value='Go' /></form> --></div>
+<!--/PageHeaderFmt-->
+  <table id='wikimid' width='100%' cellspacing='0' cellpadding='0'><tr>
+<!--PageLeftFmt-->
+      <td id='wikileft' valign='top'>
+        <p class='sidehead'> <span class='wikiword'>SimpleLog</span> wiki
+</p><ul><li><a class='wikilink' href='../Main/HomePage'>Home</a>
+</li><li><a class='wikilink' href='../Main/About'>About SimpleLog</a>
+</li><li><a class='wikilink' href='../Main/Acknowledgments'>Acknowledgments</a>
+</li><li><a class='wikilink' href='../Main/License'>License</a>
+</li><li><a class='wikilink' href='../External/SitesUsingSimpleLog'>Sites using SimpleLog</a>
+</li><li><a class='urllink' href='http://simplelog.net' rel='nofollow'>Back to simplelog.net</a>
+</li></ul><p class='vspace sidehead'> Installing <span class='wikiword'>SimpleLog</span>
+</p><ul><li><a class='wikilink' href='../Installing/BeforeYouInstall'>Before you install</a>
+</li><li><a class='wikilink' href='../Installing/Installation'>Installation</a>
+</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='../Installing/UsingSimpleLogWithMTgs'>MT(gs) users</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='../Installing/UsingSimpleLogWithDreamHost'>DreamHost users</a>
+</p><ul><li><a class='wikilink' href='../Installing/NextSteps'>Next steps</a>
+</li></ul><p class='vspace sidehead'> Upgrading
+</p><ul><li><a class='wikilink' href='../Installing/Upgrading'>From version 1.1 or higher</a>
+</li><li><a class='wikilink' href='../Installing/UpgradingOlder'>From older versions</a>
+</li></ul><p class='vspace sidehead'> Working with themes
+</p><ul><li><a class='wikilink' href='GettingStarted'>Getting started</a>
+</li><li><a class='wikilink' href='CreateANewTheme'>Create a new theme</a>
+</li><li><a class='selflink' href='Helpers'>Helper methods</a>
+</li><li><a class='wikilink' href='Preferences'>Using preferences</a>
+</li></ul><p class='vspace sidehead'> How to
+</p><ul><li><a class='wikilink' href='../Howto/ImportData'>Import Data</a>
+</li><li><a class='wikilink' href='../Howto/UsingCustomFields'>Using Custom Fields</a>
+</li><li><a class='wikilink' href='../Howto/PostToFlickr'>Post to Flickr</a>
+</li><li><a class='wikilink' href='../Howto/IntegrateDelicious'>Integrate del.icio.us</a>
+</li><li><a class='wikilink' href='../Howto/PostViaApplication'>Post via applications</a>
+</li><li><a class='wikilink' href='../Howto/SendFeedback'>Send feedback/bugs</a>
+</li></ul><p class='vspace sidehead'> Troubleshooting
+</p><ul><li><a class='wikilink' href='../Trouble/CommonProblems'>Common problems</a>
+</li></ul><p class='vspace sidehead'> Development &amp; resources
+</p><ul><li><a class='wikilink' href='../Development/SVN'>SVN</a>
+</li><li><a class='wikilink' href='../Development/Trac'>Trac</a>
+</li><li><a class='wikilink' href='../Development/ChangeLog'>ChangeLog</a>
+</li><li><a class='wikilink' href='../External/Links'>Links</a>
+</li></ul>
+</td>
+<!--/PageLeftFmt-->
+      <td id='wikibody' valign='top'>
+<!--PageActionFmt-->
+        <!-- <div id='wikicmds'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://wiki.simplelog.net/Themes/Helpers'>View</a>
+</li><li class='edit'><a accesskey='e'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Themes/Helpers?action=edit'>Edit</a>
+</li><li class='diff'><a accesskey='h'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Themes/Helpers?action=diff'>History</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Themes/Helpers?action=print'>Print</a>
+</li></ul>
+</div> -->
+<!--PageTitleFmt-->
+        <div id='wikititle'>
+          <div class='pagegroup'><a href='http://wiki.simplelog.net/Themes'>Themes</a> /</div>
+          <h1 class='pagetitle'>Helpers</h1></div>
+<!--PageText-->
+<div id='wikitext'>
+<div class='warning_box' >
+<p><strong>This page is under active construction!</strong>
+</p></div>
+<p class='vspace'>A list of the helpers available to you when building a theme. You should also see available <a class='wikilink' href='PostHelpers'>post helper methods</a> which can be used in views related to posts as well as available <a class='wikilink' href='Preferences'>preferences</a>.
+</p>
+<div class='vspace'></div><div class='helpers_list' >
+<div class='vspace'></div><h3>Meta tags</h3>
+<p><strong><code>Site.simple_meta_tag( <em>name</em>, <em>val</em> )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Create a meta tag with name <em>name</em> and value <em>val</em>. <code>&lt;%= Site.simple_meta_tag('test', 'yessir') %&gt;</code> will produce <code>&lt;meta name="test" content="yessir"/&gt;</code>
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.default_meta_tags</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Creates a default block of meta tags that most websites have. Includes content-type, author, description, dc.title and a start location link tag.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.icbm_meta_tag</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Create a meta tag for <span class='wikiword'>GeoURL</span> if the preference is set.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.esbn_meta_tag</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Create a meta tag for an ESBN number if the preference is set.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.issn_meta_tag</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Create a meta tag for an ISSN number if the preference is set.
+</div><p class='vspace'><br />
+</p><h3>Blocks</h3>
+<p><strong><code>Site.list_tags_linked( <em>tags</em> [, <em>div_id</em> [, <em>title</em> [, <em>archive_token</em> [, <em>separator</em>]]]] )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Creates a list of all tags to wish one or more post is assigned. The first argument of this method requires a collection of tags, which is available on nearly ever page of your site in the form of <code>@tags</code>. You should always pass <code>@tags</code> as the first argument. Example:
+<div class='vspace'></div></div><div class='indent'><code>&lt;%= Site.list_tags_linked(@tags) %&gt;</code>
+<div class='vspace'></div></div><div class='indent'>Will produce:
+<div class='vspace'></div></div><div class='indent'><pre class='escaped'>
+&lt;div id="tags"&gt;
+    &lt;b&gt;Tags:&lt;/b&gt; &lt;a href="site.com/past/tags/test" title="View posts tagged with &amp;quot;test&amp;quot;"&gt;test&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+<div class='vspace'></div></div><div class='indent'>You can pass different values to the optional arguments to customize this block. <em>div_id</em> will change the <code>id</code> of the <code>div</code>, <em>title</em> will alter the word placed before the list (you can pass an empty string to remove this altogether), <em>archive_token</em> should usually be your archive token preference (<code>Preference.get_setting('archive_token')</code>), and <em>separator</em> is the string to place between items in the list (default is ', ').
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.list_authors_linked( <em>authors</em> [, <em>div_id</em> [, <em>title</em> [, <em>archive_token</em> [, <em>separator</em>]]]] )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Creates a list of all authors who have posted at least one active post. This first argument of this method requires a collection of authors, which is available on nearly every page of the site, <em>assuming you enable the "Show authors" preference</em>. Example:
+<div class='vspace'></div></div><div class='indent'><code>&lt;%= Site.list_authors_linked(@authors) %&gt;</code>
+<div class='vspace'></div></div><div class='indent'>Will produce:
+<div class='vspace'></div></div><div class='indent'><pre class='escaped'>
+&lt;div id="authors"&gt;
+    &lt;b&gt;Authors:&lt;/b&gt; &lt;a href="site.com/past/authors/1" title="View all posts by Garrett Murray"&gt;Garrett Murray&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+<div class='vspace'></div></div><div class='indent'>You can pass different values to the optional arguments to customize this block. <em>div_id</em> will change the <code>id</code> of the <code>div</code>, <em>title</em> will alter the word placed before the list (you can pass an empty string to remove this altogether), <em>archive_token</em> should usually be your archive token preference (<code>Preference.get_setting('archive_token')</code>), and <em>separator</em> is the string to place between items in the list (default is ', ').
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.archive_structure_linked( <em>posts</em> [, <em>start_header_level</em> [, <em>use_li</em> ]] )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Builds a structured list of archive items for use in the main archives section of your site. <em>posts</em> is a collection of all active posts on the site. <em>start_header_level</em> is the HTML header level number to start with at the largest structural point (default is <code>3</code>). Setting <em>use_li</em> to <code>true</code> will output unordered lists instead of a definition list. Example:
+<div class='vspace'></div></div><div class='indent'><code>&lt;%= Site.archives_structure_linked(@posts) %&gt;</code>
+<div class='vspace'></div></div><div class='indent'>Will produce:
+<div class='vspace'></div></div><div class='indent'><pre class='escaped'>
+&lt;dt&gt;
+    &lt;dd&gt;&lt;h3&gt;2007&lt;/h3&gt;&lt;/dd&gt;
+    &lt;dt&gt;
+        &lt;dd&gt;&lt;h4&gt;&lt;a href="site.com/past/2007/1" title="January"&gt;January&lt;/a&gt;&lt;/h4&gt;&lt;/dd&gt;
+        &lt;dd&gt;&lt;a href="site.com/past/2007/1/post" title="Post"&gt;Post&lt;/a&gt;&lt;/dd&gt;
+    &lt;/dt&gt;
+&lt;/dt&gt;
+</pre>
+<div class='vspace'></div></div><div class='indent'>
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.get_posts( <em>sql</em> )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Grab and return posts using SQL. You can any SQL language to select posts and use them for any purpose on your site. Store the results in a variable and then loop through them to use them.
+<div class='vspace'></div></div><div class='indent'>For instance, if you wish to have a list of the five recent posts in your sidebar, you could use the following code:
+<div class='vspace'></div></div><div class='indent'><pre class='escaped'>
+&lt;% recent_posts = Site.get_posts('select * from posts order by created_at desc limit 5') -%&gt;
+&lt;ul&gt;
+&lt;% for rp in recent_posts -%&gt;
+    &lt;li&gt;&lt;%= rp.title %&gt;&lt;/li&gt;
+&lt;% end -%&gt;
+&lt;/ul&gt;
+</pre>
+</div><p class='vspace'><br />
+</p><h3>HTML/CSS/Javascript</h3>
+<p><strong><code>Site.body_id</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns a body ID for use in the HTML body tag. If you use this, people will have the option of overriding your CSS in their browsers.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.mint_tag</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>If your Mint location is set in preferences, this will return the standard Mint javascript code block.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.site_name_linked</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns your site's name (as set in preferences) in an HTML link to the root of your site.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.rss_feed_link( [ <em>name</em> [, <em>title</em> ]] )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>An HTML link to your posts RSS feed. Both <em>name</em> and <em>title</em> are optional and have simple default values. Override them to create a more customized link. The URL of this link is either the default RSS URL or the URL you specify in the RSS link location preference.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.comments_feed_link( [ <em>name</em> [, <em>title</em> ]] )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>An HTML link to your comments RSS feed. Both <em>name</em> and <em>title</em> are optional and have simple default values. Override them to create a more customized link. The URL of this link is either the default comments RSS URL.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.delicious_info( [ <em>wrap_in_p</em> ] )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>A simple way to tell users about your del.icio.us information. <em>wrap_in_p</em> is an optional boolean you can use to wrap the output in HTML <code>p</code> tags. The output of this is as follows:
+<div class='vspace'></div></div><div class='indent'><pre class='escaped'>
+Interesting links can be found at &lt;a href="http://del.icio.us/username" title="del.icio.us"&gt;del.icio.us&lt;/a&gt;
+or by subscribing to my &lt;a href="http://del.icio.us/rss/username" title="My del.icio.us feed"&gt;del.icio.us feed&lt;/a&gt;
+</pre>
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.link_to_page( <em>link</em> )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Creates an HTML link to a "static" page with the link <em>link</em>. For instance, if you have created a static page with the link "about", you could create an HTML link to it on any page like such:
+<div class='vspace'></div></div><div class='indent'><code>&lt;%= Site.link_to_page('about') %&gt;</code>
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.permalink( <em>post</em> )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Creates an HTML link to a post. <em>post</em> must be a Post object from the database. This is most commonly used in post lists and such.
+</div><p class='vspace'><br />
+</p><h3>Various Outputted Texts</h3>
+<p><strong><code>Site.copyright_range</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>When this site was copyrighted to present (if later). Initial copyright year is set in preferences. If the initial year is earlier than the current year, this will output YYYY-YYYY.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.powered_by_link</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Outputs "Powered by <span class='wikiword'>SimpleLog</span>", with the word <span class='wikiword'>SimpleLog</span> linked to simplelog.net.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.primary_author_pronoun</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Outputs "him" or "her" depending on the author gender set in preferences.
+</div><p class='vspace'><br />
+</p><h3>Global values</h3>
+<p><strong><code>Site.full_url</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns the full URL of the site, based on the value set in the domain preference. This is used throughout the site for accurate permalinks, navigation, and RSS structure.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.rss_url</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>The full RSS URL for the site, based on the Site.full_url value and the default RSS location or your value in preferences.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.comments_rss_url</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>The full comments RSS URL, based on the Site.full_url value and the default comments URL location.
+</div><p class='vspace'><br />
+</p><h3>Utilities for finding your current location</h3>
+<p><strong><code>Site.current_location</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns a string containing your current location in regards to theme files or, in the case of static pages, pages/your static page link name. You can use this to figure out where you are on the site in your theme views.
+<div class='vspace'></div></div><div class='indent'>For instance, if you want to show a certain phrase on the site only when you're on the individual post archive page, you could do:
+<div class='vspace'></div></div><div class='indent'><pre class='escaped'>
+&lt;% if Site.current_location == 'posts/show' -%&gt;
+    This is the individual page.
+&lt;% end -%&gt;
+</pre>
+<div class='vspace'></div></div><div class='indent'>For static pages, this will return 'pages/<em>your_page_link</em>'. See also: <a href='Helpers#sa1'>Site.page_is</a>
+</div><div class='vspace'></div><hr />
+<p class='vspace'><a name='sa1' id='sa1'></a><strong><code>Site.page_is( <em>str</em> )</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns a boolean--is this page the same as the string passed in? Pass in the link assigned to the static page. Example:
+<div class='vspace'></div></div><div class='indent'><code>&lt;%= 'This is the about page.' if Site.page_is('about') %&gt;</code>
+<div class='vspace'></div></div><div class='indent'>Use this to do various checks in your views for static pages.
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.is_home_page</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns a boolean--are we on the home page?
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.is_archives</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns a boolean--are we on an archive page?
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.is_search</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns a boolean--are we on a search results page (either quick or full)?
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.is_static_page</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Returns a boolean--are we on a static page?
+</div><p class='vspace'><br />
+</p><h3>Common Preference Booleans</h3>
+<p><strong><code>Site.show_authors</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Is the "Show Authors" preference enabled?
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.comment_system_on</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Is the comment system turned on?
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.gravatars_on</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Is the "Show Gravatars" preference enabled?
+</div><div class='vspace'></div><hr />
+<p class='vspace'><strong><code>Site.allow_comment_subjects</code></strong>
+</p>
+<div class='vspace'></div><div class='indent'>Is the "Allow comment subjects" preference enabled?
+</div><div class='vspace'></div></div>
+</div>
+
+      </td>
+    </tr></table>
+<!--PageFooterFmt-->
+  <!-- <div id='wikifoot'>
+    <div class='footnav'>
+      <a rel="nofollow" href='http://wiki.simplelog.net/Themes/Helpers?action=edit'>Edit</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Themes/Helpers?action=diff'>History</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Themes/Helpers?action=print' target='_blank'>Print</a> -
+      <a href='http://wiki.simplelog.net/Themes/RecentChanges'>Recent Changes</a> -
+      <a href='http://wiki.simplelog.net/Site/Search'>Search</a></div>
+    <div class='lastmod'>Page last modified on February 05, 2007, at 04:39 PM EST</div></div> -->
+<!--HTMLFooter-->
+</body>
+</html>

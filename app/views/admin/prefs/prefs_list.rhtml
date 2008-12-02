@@ -1,0 +1,34 @@
+<%= render :partial => 'admin/prefs/subnav', :locals => {:fs => true} %>
+
+<div id="header">
+	<h1 class="skinny">Preferences</h1>
+	<h2 class="fat">Required fields in <b>bold</b>.</h2><br/>
+	<% if flash[:notice] %><div class="green flash"><%= flash[:notice] %></div><% end %>
+</div>
+
+<% form_tag(Site.full_url + '/admin/prefs/save', :id => 'prefs_form') do %>
+    <%= hidden_field_tag 'current_tab', 'site_details' %>
+    <% fields = [] %>
+    <% if @write_errors and @errors_list %>
+    <div class="errorExplanation" id="errorExplanation"><h2><%= pluralize(@errors_list.length, "error") %> prohibited your preferences from being saved</h2><p>There were problems with the following fields:</p><ul><% for e in @errors_list %><li><%= e['nice_name'] + ' ' + e['error'] %></li><% fields[fields.length] = e['name'] %><% end %></ul></div>
+    <% end %>
+    
+    <div id="prefs_tabs">
+        
+        <div id="tab_wrapper">
+            <ul id="tabs">
+                <li><a id="advanced_settings_l" href="#" onclick="swapTab('advanced_settings')">Advanced</a></li>
+                <li><a id="meta_information_l" href="#" onclick="swapTab('meta_information')">Meta Info</a></li>
+                <li><a id="content_settings_l" href="#" onclick="swapTab('content_settings')">Content</a></li>
+                <li><a id="display_settings_l" href="#" onclick="swapTab('display_settings')">Display</a></li>
+                <li class="first"><a class="pt_current" id="site_details_l" href="#" onclick="swapTab('site_details')">Site Details</a></li>
+            </ul><br/>
+        </div>
+        
+        <%= render :partial => 'admin/prefs/prefs_form', :locals => {:fields => fields} %>
+    
+        <div class="submit_area"><%= submit_tag 'Save Preferences', :class => 'submit' %> or <%= link_to 'cancel changes you\'ve made', Site.full_url + '/admin/prefs' %></div>
+    </div>
+    
+<% end -%>
+<br/>

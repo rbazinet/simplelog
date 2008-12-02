@@ -1,0 +1,16 @@
+    <div id="admin_sub_nav">
+        <div class="sn_left wider">
+            <span id="get_rules"><%= link_to_remote('<b>Import blacklist rules</b>',
+            {
+                :url => Site.full_url + '/admin/blacklist/get/rules',
+                :loading => "Element.hide('get_rules'); Element.show('working_img');",
+                :complete => "Element.hide('working_img');",
+                :success => "Element.show('get_success');document.forms['blacklist_form'].elements['full_blacklist'].value += " + '"\n" + request.responseText',
+                :failure => "Element.show('get_failure');setTimeout('Element.hide(\"get_failure\");Element.show(\"get_rules\")', 5000)",
+                :confirm => "Importing blacklist rules from the SimpleLog clearing house connects to a central server and grabs the latest ruleset, copying it to your local SimpleLog install.\n\nNo information is sent to the server.\n\nAre you sure you wish to continue?"
+            }) %> from the SimpleLog clearinghouse.</span><span id="working_img" style="display: none;"><img src="<%= Site.full_url %>/images/admin/indicator_gray_bg.gif" alt="Working" border="0"/> Working (this may take a few moments)...</span><span id="get_success" style="display: none;">Rules imported! You should click the "update blacklist" button to save.</span><span id="get_failure" style="display: none;">There was an error connecting. Please try again later.</span>
+        </div>
+        <div class="sn_right narrower">
+            <%= link_to '&larr; Return to the comments list', Site.full_url + '/admin/comments' %>
+        </div><br/>
+    </div>

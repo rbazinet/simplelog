@@ -1,0 +1,67 @@
+# $Id: posts.yml 296 2007-01-30 22:31:51Z garrett $
+
+post_1:
+  id: 1
+  author_id: 1
+  created_at: '2006-05-01 00:00:00'
+  modified_at: '2006-05-01 00:00:00'
+  permalink: test_body_content
+  title: test
+  body_raw: test body content
+  body: test body content
+  is_active: true
+  
+post_2:
+  id: 2
+  author_id: 1
+  created_at: '2006-05-01 00:00:00'
+  modified_at: '2006-05-01 00:00:00'
+  permalink: test_body_content_again
+  title: test not active
+  body_raw: test body content
+  body: test body content
+  is_active: false
+  
+post_3:
+  id: 3
+  author_id: 1000 # doesn't exist
+  created_at: '2006-05-01 00:00:00'
+  modified_at: '2006-05-01 00:00:00'
+  permalink: test
+  title: no author
+  body_raw: test
+  body: test
+  is_active: true
+  
+post_4:
+  id: 4
+  author_id: 3
+  created_at: '2006-05-01 00:00:00'
+  modified_at: '2006-05-01 00:00:00'
+  permalink: test_one_more
+  title: another test
+  body_raw: test one more
+  body: test one more
+  is_active: true
+  
+post_5:
+  id: 5
+  author_id: 3
+  created_at: '2006-05-02 00:00:00'
+  modified_at: '2006-05-02 00:00:00'
+  permalink: more_test_posts
+  title: another test post for author 3
+  body_raw: test one more time for 3
+  body: test one more time for 3
+  is_active: true
+
+post_6:
+  id: 6
+  author_id: 3
+  created_at: '2006-05-03 00:00:00'
+  modified_at: '2006-05-03 00:00:00'
+  permalink: more_test_posts_again
+  title: another test post for author 3 again
+  body_raw: test one more time for 3 again
+  body: test one more time for 3 again
+  is_active: true

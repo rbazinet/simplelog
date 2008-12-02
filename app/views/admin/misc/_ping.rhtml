@@ -1,0 +1,19 @@
+<h1>Ping</h1>
+<h2>Uses Ping-O-Matic.</h2>
+
+<p>Send a ping to notify common engines your site has been updated. This may take a few moments, please be patient.</p>
+			
+<% form_remote_tag(:html => {:id => 'ping_form'},
+					:update => '',
+					:complete => 'ping_done(\'pbutton\', \'ping_status\');',
+					:loading => 'pinging(\'' + Site.full_url + '\', \'pbutton\', \'ping_status\');',
+					:url => Site.full_url + '/admin/ping/do') do -%>
+	<div id="ping_control">
+		<div id="ping_button">
+			<%= submit_tag 'Send Ping', :id => 'pbutton' %>
+		</div>
+		<div id="ping_status">Awaiting action.</div><br/>
+	</div>
+<% end -%>
+
+<div class="pp_close_msg_link"><a class="noback" href="#" onclick="showPingPanel();"><img class="pp_close_img" src="<%= Site.full_url %>/images/admin/close_button.png" /></a><span class="close_text">&nbsp;<a href="#" onclick="showPingPanel();">Close this panel</a></span><br/></div>

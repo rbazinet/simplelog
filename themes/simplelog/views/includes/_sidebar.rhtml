@@ -1,0 +1,32 @@
+<%# start the form tag for (quick) search results -%>
+<% form_remote_tag(:html => {:id => 'search_form'},
+					:update => 'results',
+					:complete => 'showResults(true);',
+					:loading => 'showResults(false);',
+					:url => "#{Site.full_url}/search") do -%>
+
+    <p><%= Site.site_description %></p>
+	
+    <p>You can <a href="#" id="showSearch" title="Search this site" onclick="showSearch();">search this site</a>, view <a href="#" id="showTags" title="Posts by tag" onclick="showTags();">posts by tag</a><% if Site.show_authors %> or <a href="#" id="showAuthors" title="Posts by author" onclick="showAuthors();">by author</a><% end %> and <a href="<%= Site.full_url %>/archives" title="Archives">browse the archives</a>.</p>
+    
+    <p>Subscribe to the <%= Site.rss_feed_link %> or the <%= Site.comments_feed_link %>.</p>
+    
+    <%= Site.delicious_info %>
+	
+    <div id="search">
+    	<b>Search:</b>&nbsp;&nbsp;<input type="text" name="q" id="q" value="Enter your terms, hit enter" onfocus="searchFocus()"/>
+    </div>
+    <div id="search_results">
+        <b>Results (escape to close):</b><br/><span id="loading"></span><span id="results"></span>
+    </div>
+	
+    <%= Site.list_tags_linked(@tags) %>	
+
+    <%= Site.list_authors_linked(@authors_list) %>
+	
+    <%# please don't remove this! -%>
+    <p><%= Site.powered_by_link %></p>
+    <%# please don't remove this! -%>
+
+<% end -%>
+<%# end (quick) search form tag -%>

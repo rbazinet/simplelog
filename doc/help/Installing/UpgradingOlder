@@ -1,0 +1,157 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>SimpleLog wiki | Installing / UpgradingOlder </title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel='stylesheet' href='../pmwiki/pub/skins/pmwiki/pmwiki.css' type='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<!--PageHeaderFmt-->
+  <div id='wikilogo'><a href='../index.html'><img src='../pmwiki/pub/skins/pmwiki/pmwiki-32.gif'
+    alt='SimpleLog wiki' border='0' /></a></div>
+  <div id='wikihead'>
+  <!-- <form action='http://wiki.simplelog.net'>
+    <span class='headnav'><a href='http://wiki.simplelog.net/Installing/RecentChanges'
+      accesskey='c'>Recent Changes</a> -</span>
+    <input type='hidden' name='n' value='Installing.UpgradingOlder' />
+    <input type='hidden' name='action' value='search' />
+    <a href='http://wiki.simplelog.net/Site/Search'>Search</a>:
+    <input type='text' name='q' value='' class='inputbox searchbox' />
+    <input type='submit' class='inputbutton searchbutton'
+      value='Go' /></form> --></div>
+<!--/PageHeaderFmt-->
+  <table id='wikimid' width='100%' cellspacing='0' cellpadding='0'><tr>
+<!--PageLeftFmt-->
+      <td id='wikileft' valign='top'>
+        <p class='sidehead'> <span class='wikiword'>SimpleLog</span> wiki
+</p><ul><li><a class='wikilink' href='../Main/HomePage'>Home</a>
+</li><li><a class='wikilink' href='../Main/About'>About SimpleLog</a>
+</li><li><a class='wikilink' href='../Main/Acknowledgments'>Acknowledgments</a>
+</li><li><a class='wikilink' href='../Main/License'>License</a>
+</li><li><a class='wikilink' href='../External/SitesUsingSimpleLog'>Sites using SimpleLog</a>
+</li><li><a class='urllink' href='http://simplelog.net' rel='nofollow'>Back to simplelog.net</a>
+</li></ul><p class='vspace sidehead'> Installing <span class='wikiword'>SimpleLog</span>
+</p><ul><li><a class='wikilink' href='BeforeYouInstall'>Before you install</a>
+</li><li><a class='wikilink' href='Installation'>Installation</a>
+</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='UsingSimpleLogWithMTgs'>MT(gs) users</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='UsingSimpleLogWithDreamHost'>DreamHost users</a>
+</p><ul><li><a class='wikilink' href='NextSteps'>Next steps</a>
+</li></ul><p class='vspace sidehead'> Upgrading
+</p><ul><li><a class='wikilink' href='Upgrading'>From version 1.1 or higher</a>
+</li><li><a class='selflink' href='UpgradingOlder'>From older versions</a>
+</li></ul><p class='vspace sidehead'> Working with themes
+</p><ul><li><a class='wikilink' href='../Themes/GettingStarted'>Getting started</a>
+</li><li><a class='wikilink' href='../Themes/CreateANewTheme'>Create a new theme</a>
+</li><li><a class='wikilink' href='../Themes/Helpers'>Helper methods</a>
+</li><li><a class='wikilink' href='../Themes/Preferences'>Using preferences</a>
+</li></ul><p class='vspace sidehead'> How to
+</p><ul><li><a class='wikilink' href='../Howto/ImportData'>Import Data</a>
+</li><li><a class='wikilink' href='../Howto/UsingCustomFields'>Using Custom Fields</a>
+</li><li><a class='wikilink' href='../Howto/PostToFlickr'>Post to Flickr</a>
+</li><li><a class='wikilink' href='../Howto/IntegrateDelicious'>Integrate del.icio.us</a>
+</li><li><a class='wikilink' href='../Howto/PostViaApplication'>Post via applications</a>
+</li><li><a class='wikilink' href='../Howto/SendFeedback'>Send feedback/bugs</a>
+</li></ul><p class='vspace sidehead'> Troubleshooting
+</p><ul><li><a class='wikilink' href='../Trouble/CommonProblems'>Common problems</a>
+</li></ul><p class='vspace sidehead'> Development &amp; resources
+</p><ul><li><a class='wikilink' href='../Development/SVN'>SVN</a>
+</li><li><a class='wikilink' href='../Development/Trac'>Trac</a>
+</li><li><a class='wikilink' href='../Development/ChangeLog'>ChangeLog</a>
+</li><li><a class='wikilink' href='../External/Links'>Links</a>
+</li></ul>
+</td>
+<!--/PageLeftFmt-->
+      <td id='wikibody' valign='top'>
+<!--PageActionFmt-->
+        <!-- <div id='wikicmds'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://wiki.simplelog.net/Installing/UpgradingOlder'>View</a>
+</li><li class='edit'><a accesskey='e'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Installing/UpgradingOlder?action=edit'>Edit</a>
+</li><li class='diff'><a accesskey='h'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Installing/UpgradingOlder?action=diff'>History</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Installing/UpgradingOlder?action=print'>Print</a>
+</li></ul>
+</div> -->
+<!--PageTitleFmt-->
+        <div id='wikititle'>
+          <div class='pagegroup'><a href='Installing'>Installing</a> /</div>
+          <h1 class='pagetitle'>UpgradingOlder</h1></div>
+<!--PageText-->
+<div id='wikitext'>
+<div class='warning_box' >
+<p><span style='font-size:120%'><strong>BACK UP YOUR CURRENT SITE!</strong> Files, database, all of it! BACK UP! BACK UP!</span>
+</p></div>
+<div class='vspace'></div><div class='box chubby' >
+<p><span style='font-size:120%'><strong>Important: </strong></span> If you're using <span class='wikiword'>MediaTemple</span> Grid Server (gs) see this after upgrading: <a class='wikilink' href='UsingSimpleLogWithMTgs'>Using SimpleLog with MT(gs)</a>
+</p></div>
+<div class='vspace'></div><h3>If you are upgrading from 1.0 <em>or lower</em> =&gt; current</h3>
+<p><strong>IMPORTANT:</strong> Do not copy over the new simplelog folder yet and do not skip any of these steps!
+</p>
+<p class='vspace'>1. From the new simplelog directory, copy lib/tasks/simplelog_themer.rake to the same location in your current <span class='wikiword'>SimpleLog</span> install, lib/tasks
+</p>
+<p class='vspace'>2. Run this rake task from your current install:
+</p>
+<div class='vspace'></div><div class='indent'><code>rake simplelog:themer</code>
+</div><p class='vspace'>This task will create a directory called 'onepointoh' in the root of your current <span class='wikiword'>SimpleLog</span> install. This directory is a theme, created from your current <span class='wikiword'>SimpleLog</span> site. It contains updated views (with correct preference references), all of your stylesheets, images and javascript files.
+</p>
+<p class='vspace'>3. Copy the 'onepointoh' directory into the new simplelog directory/themes directory.
+</p>
+<p class='vspace'>4. Copy config/site.rb and config/database.yml from your current <span class='wikiword'>SimpleLog</span> install, to the new simplelog directory/config
+</p>
+<p class='vspace'>5. Now copy the contents of the new simplelog directory over to your current install, replacing all files, and chmod:
+</p>
+<div class='vspace'></div><div class='indent'><pre class='escaped'>chmod 755 log/
+chmod 755 theme_backup/
+chmod 755 public/dispatch.fcgi</pre>
+</div><p class='vspace'>6. Open config/server.rb (not site.rb) and confirm the values of the two options there.
+</p>
+<p class='vspace'>7. Run the DB upgrade rake task:
+</p>
+<div class='vspace'></div><div class='indent'><code>rake simplelog:upgrade</code>
+</div><p class='vspace'>8. Restart your server.
+</p>
+<p class='vspace'>9. Log into your administration section and visit the preferences section. Change your theme from 'Default' to 'Onepointoh' and save.
+</p>
+</div>
+
+      </td>
+    </tr></table>
+<!--PageFooterFmt-->
+  <!-- <div id='wikifoot'>
+    <div class='footnav'>
+      <a rel="nofollow" href='http://wiki.simplelog.net/Installing/UpgradingOlder?action=edit'>Edit</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Installing/UpgradingOlder?action=diff'>History</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Installing/UpgradingOlder?action=print' target='_blank'>Print</a> -
+      <a href='http://wiki.simplelog.net/Installing/RecentChanges'>Recent Changes</a> -
+      <a href='http://wiki.simplelog.net/Site/Search'>Search</a></div>
+    <div class='lastmod'>Page last modified on January 26, 2007, at 05:35 PM EST</div></div> -->
+<!--HTMLFooter-->
+</body>
+</html>

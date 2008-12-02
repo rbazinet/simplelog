@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /mint/ # if you've got it, this is a good idea
+Disallow: /admin/ # no reason for them to try there

@@ -1,0 +1,706 @@
+# $Id: CHANGELOG 330 2007-02-14 19:06:13Z garrett $ #
+
+Version 2.0.2
+----------------------------
+
+[FIXED] Search error due to future post code
+
+[FIXED] Tags would show up if their only post association was a future post
+
+[FIXED] Future post edit page would allow you to view it on the site, which didn't work
+
+[CHANGED] Darkened the background lines for future post rows in the admin section a little
+
+[FIXED] Upgrade rake wasn't creating the full search results view
+
+[NEW] Upgrade rake will create missing full search results view if it's missing in post-2.0 versions
+
+[FIXED] Requiring site.rb in a migration would cause an error if you had Cheat gem installed (thanks AK)
+
+[FIXED] Some text in the admin section was wrapping for Windows users
+
+
+Version 2.0.2b1
+----------------------------
+
+[NEW] You can now create "future posts" where the created_at date is later than now and they will show up only when it's time on your site
+
+[NEW] Added note about future posts to posts lists and appropriate styles
+
+[FIXED] Update check could cause error in very specific cases
+
+[FIXED] Update check bar might be sticky in certain cases
+
+
+Version 2.0.1
+----------------------------
+
+[FIXED] Bad copy of frozen rails replaced
+
+[FIXED] Comments were being posted with server time rather than local time
+
+
+Version 2.0
+----------------------------
+
+[FIXED] Upgrade rake theme conversion was deleting left over files, it now copies them to an "old" directory and adds a README
+
+[NEW] You can specify whether to use lists or definition lists in the archive list linked block method
+
+[NEW] You can specify which HTML heading level to use in the archive list linked block method
+
+[CHANGED] Updated FAQs
+
+[CHANGED] Updated documentation for 2.0 release
+
+[FIXED] Fixed layout in admin forms with previews where padding was incorrect
+
+[FIXED] Corrected the scope of the Site.is_archives boolean to include all views that are archives
+
+[FIXED] Disabled local domain check in prefs section for now, causes too many problems to be worth it (and rarely comes up)
+
+[FIXED] Timestamps in feeds weren't accurate, added localization method to make sure they are, updated upgrade rake with diff
+
+[CHANGED] Tweaked the admin preview CSS to lower the sizes of headers
+
+[NEW] Including a frozen version of rails release 1-2-1 with this release to ensure compatibility
+
+[FIXED] date_time_comment_linked had extraneous curly brace in output
+
+[NEW] Added logging when comment fails human check
+
+[NEW] You can now set comment status from remote-posting applications like MarsEdit
+
+[FIXED] HTML description has its tags stripped when called from the Site.default_meta_tags method
+
+
+Version 2.0 RC2
+----------------------------
+
+[FIXED] Moved server.rb require into main environment to get around ActionMailer error
+
+[FIXED] Removed ActionMailer disabling line since it causes problems in some cases (and we'll use it later anyway)
+
+
+Version 2.0 RC1
+----------------------------
+
+[FIXED] Updated copyright years throughout the app
+
+[CHANGED] Updated the SimpleLog license to true GPL, added copyright headers to all necessary files
+
+[NEW] Added Site.link_to_page() method for easy links to "static" pages
+
+[NEW] Added Site.permalink() method for easy permalinks site-wide (pass in a post object)
+
+[NEW] Added local documentation
+
+
+Version 2.0b9
+----------------------------
+
+[FIXED] Safari was behaving strangely when hiding/showing content preview
+
+[FIXED] Content preview was misaligned
+
+[FIXED] Update available bar will no longer disappear when there's a posting issue
+
+[FIXED] Pages admin will properly respond to missing permalink now, instead of filling it in with memory address
+
+
+Version 2.0b8
+----------------------------
+
+[FIXED] Changed all deprecated instances of end_form_tag to form_tag blocks for Rails 1.2+
+
+[CHANGED] Removed domain overriding, it's too much of a can of worms for now
+
+[NEW] Added rake task simplelog:reset:domain which allows you to fix bad domain settings
+
+[FIXED] Removed all deprecated items from rake tasks, updated them
+
+[FIXED] Tests should once again all pass!
+
+[FIXED] Error on admin login page causing multiple loads
+
+[FIXED] Corrected instances where \n weren't coming through in javascript confirmation dialogs
+
+[CHANGED] Moved the get_posts utility method to Site.get_posts, deprecated the PostHelper version
+
+[NEW] Added deprecation logger warnings for older helper methods that have been replaced
+
+[FIXED] Admin prefs would error if your domain pref was NULL
+
+[NEW] Added author_info helper to post
+
+
+Version 2.0b7
+----------------------------
+
+[FIXED] Fixed bug in theme controller that was causing errors on 1.1.6- versions of Rails
+
+[FIXED] Fixed bug in theme controller that was causing theme-related content not to show (images, css, etc)
+
+[NEW] Preferences remember which tab you were on when saving
+
+[FIXED] Mint tag helper method was adding HTML comments even if you had no Mint value
+
+[FIXED] Site name linked helper method wasn't linking to root if your domain was blank
+
+[NEW] You can now ask the app which page you're on and get the theme-based location (i.e. 'archives/list')
+
+[NEW] Added validation to make sure people don't use "show" as a page link (it's reserved)
+
+[NEW] SimpleLog is now smarter about domain settings, checks to see if your domain pref is incorrect
+
+
+Version 2.0b6
+----------------------------
+
+[NEW] This version requires Rails 1.2+
+
+[FIXED] Outstanding Rails 1.2+ bugs have been squashed, app is updated and works
+
+[CHANGED] All rake tasks have been placed in the proper "simplelog" namespace
+
+[CHANGED] Removed local documentation, full docs will come in next release
+
+[FIXED] Search routes were bad causing views without layouts
+
+[FIXED] Full search page didn't have a title
+
+
+Version 2.0b5
+----------------------------
+
+[NEW] Added all-new subnavigation bar to the admin section
+
+[NEW] Added ability to turn on comments system (if off) from posts subnav
+
+[FIXED] Preference caching was still a little wonky
+
+[FIXED] Spaces and special chars weren't being stripped from "static" page links
+
+[FIXED] "Static" pages weren't linked to correctly in admin list
+
+[FIXED] "Static" page URL preview wasn't respecting subdomains or subdirectories
+
+[FIXED] MT content importer was erring due to Time method missing
+
+[FIXED] Migrations were erring due to Time method missing
+
+[FIXED] Blank entries in the posts list could show up if content was all HTML
+
+[NEW] Added arrow sort indicators to column headers in lists for current column and order
+
+[CHANGED] New post + link is now an image rather than text
+
+[NEW] You can now search in the pages admin section
+
+[NEW] You can now search in the tags admin section
+
+[CHANGED] Ping is now a quick panel that shows up instead of its own section
+
+[NEW] Added ability to batch process comment status settings for posts in the posts admin section
+
+[CHANGED] Help is now initially a quick panel which shows options for either FAQ, web-based wiki or email options
+
+[FIXED] Email address field is now selected on login page load
+
+[CHANGED] Tweaked login page layout
+
+[NEW] Added ability to batch approve or delete unapproved comments in the comments admin section
+
+[NEW] Added appropriate comments to the "simplelog" theme comment code so people can find it and copy it easier
+
+[NEW] Added new help FAQs and links to the SimpleLog wiki
+
+[CHANGED] Streamlined the updates section a bit
+
+[NEW] Added access keys to new post (n), navigation (1-5 or 6 on left, p, u, h, l, v on right)
+
+[FIXED] Blacklist cache wasn't working and was buggy in many places
+
+[CHANGED] For all new 2.0 installs, comments will be enabled by default
+
+
+Version 2.0b4
+----------------------------
+
+[FIXED] Comment errors were sending you to the wrong place
+
+[FIXED] "simplelog" theme wasn't handling comment settings correctly, tweaked CSS a bit
+
+[NEW] Added a few new post/site helpers
+
+[FIXED] URLS in the blacklist with http:// weren't showing proper remove links in comment admin form
+
+[NEW] Log entries are created when comments are blocked now
+
+[FIXED] In comments admin list, posts are now linked correctly
+
+[CHANGED] Replaced all lingering literal references to local time to the Time.sl_local method
+
+[CHANGED] Blacklist items are now stored in a cache for faster access
+
+[FIXED] Preferences weren't being cached properly
+
+[CHANGED] simplelog_upgrade now tries, as best it can, to update 1.x themes to the 2.x format
+
+[NEW] Added note about theme changes in 2.x to the themes dir, hopefully this helps people
+
+
+Version 2.0b3
+----------------------------
+
+[FIXED] Site would be blank on first load due to error in site helper
+
+[FIXED] Routing and redirecting for login/logout was incorrect causing 404
+
+[NEW] Added link to archive_token/tags to view tags list (in addition to /tags that already existed)
+
+[FIXED] Theme-based image, stylesheet and javascript tags work again and deal correctly with domain settings
+
+[FIXED] Deleting items in admin while in search results would lead to 404
+
+[NEW] Added preference for number of items in full search results
+
+[NEW] Added new view for full search results
+
+[NEW] Added helpful FILE DESCRIPTIONS files in the default "simplelog" theme to inform people what everything is
+
+[CHANGED] Default theme is now "simplelog" on new installs
+
+[FIXED] "simplelog" theme finished up
+
+[CHANGED] Updated the MT content importer to better handle errors
+
+[NEW] Added a README to the importer to better describe the required formatting
+
+[NEW] Now strip ending slash of domain if it exists
+
+[FIXED] "simplelog" theme didn't have feed views (oops!)
+
+
+Version 2.0b2 (unstable)
+----------------------------
+
+[CHANGED] Moved all the admin controller methods to proper subclasses
+
+[CHANGED] Updated the sort_helper's link_to method to work with new admin subclasses
+
+[FIXED] Comments could be posted with dangerous code inside them, various posting bugs
+
+[FIXED] Update checking was erroring in admin section when auto update was turned on
+
+[NEW] New and improved default theme ("simplelog") with a much better file structure
+
+[NEW] Craploads of post and site helper methods
+
+[CHANGED] simplelog_upgrade rake fixing old themes to work for 2.0+ (still working on this)
+
+
+Version 2.0b1
+----------------------------
+
+[NEW] Added new site helper and Site class to ease the use of preferences, you can now call prefs as such: Site.pref_name
+
+[FIXED] When trying to access a page that doesn't exist, you now hit a 404 instead of the index
+
+[NEW] You can now run SimpleLog in a subdirectory
+
+[FIXED] Success messages when setting prefs or clearing the theme cache weren't showing up
+
+
+Version 1.5rc3
+----------------------------
+
+[CHANGED] Feed posts now are sorted by created_at instead of modified_at
+
+[FIXED] Broken P tag in feeds in default themes
+
+[FIXED] PostgreSQL users couldn't view the post list when comments system was turned on (heh, oops)
+
+[NEW] Added check for actual human input to comments form in default themes, feel free to use this simple thing in your themes as well to help fight spam (thanks to Shawn Morrison for the idea)
+
+[CHANGED] Renamed "Default with Comments" theme directory to use _ instead of spaces in name (causing problems on some servers) and added migration to fix references
+
+[CHANGED] Moved require commands to environment and updated the server.rb file with new ActionMailer settings (this will happen automatically when you run the simplelog_upgrade rake)
+
+[NEW] Added more help FAQs
+
+[CHANGED] Updated docs a little
+
+
+Version 1.5rc2
+----------------------------
+
+[FIXED] Tag archive had integers (tag counts) in the links
+
+[FIXED] Tag and archives pages had 404 as title
+
+[CHANGED] Passing empty string into previous_next method for span and title will allow you to wrap these links in your own code (i.e. doesn't create a span or add a title)
+
+[NEW] You can now hide the title text for the tag list and author list, as well as specify the separator for both (default to ', ')
+
+[FIXED] Auto update notification toggle wasn't sticking
+
+
+Version 1.5rc1
+----------------------------
+
+[FIXED] Yearly archive URLs weren't working (e.g. /past/2006)
+
+[NEW] The previous_next method used to get links to the next and previous posts on individual post pages is now much more customizable, see helpers/post_helper.rb for details
+
+[NEW] Added a tag archive page (/tags) which lists all tags
+
+[NEW] Added MT grid server tags to the public/.htaccess file so that grid server users can regenerate this when necessary (upgrading)
+
+[NEW] The simplelog_upgrade rake task now does some work on your themes to make sure they're all good
+
+
+Version 1.5b5
+----------------------------
+
+[FIXED] Postgresql users couldn't update to newest version, various errors due to DB problems
+
+[FIXED] Made sure to set comment status on save of post, regardless of whether or not commenting is turned on
+
+[FIXED] If posts had comment status other than 0 and you turned off the comment system and then updated those posts, they would lose their comment status
+
+[NEW] Admin pages now send you back to exactly where you were when you delete an item (e.g. if you delete a post in search results, you go back to search results rather than just the default post list)
+
+[FIXED] Lock out message in author section would show up red on green, should be white on red
+
+[FIXED] Ruby would crash (!) when using Rails 1.0.0 when saving blacklist occasionally due to bug in session management
+
+[FIXED] Error when trying to view a static page that didn't exist
+
+[NEW] Searching is now even smarter (i.e. if your search turns up nothing the first time it will try again with OR between each word and usually returns some results)
+
+[NEW] Send ping checkbox is now disabled if the post is marked as inactive
+
+[NEW] Author select menu is no longer shown in post section if there is only one author in the system
+
+[NEW] You can now easily have previous and next post links show the titles of the posts rather than just "previous" and "next", see post_helper for details
+
+[NEW] Saving preferences and/or clearing the theme cache also cleans out the sessions table, which people should be doing regularly but probably aren't
+
+[NEW] Added preference to change the archive token site-wide from "past" to "archives" or "older" (default is past), any of these links will work from this point on regardless of the setting
+
+
+Version 1.5b4
+----------------------------
+
+[FIXED] Javascript error when loading the pages page
+
+[CHANGED] Added preview of URL to page tool, shows you what the URL of your page will be with live updating
+
+[REMOVED] Dropped the "Simple titles" preference for pages, it isn't necessary
+
+[NEW] Added title field to pages and default views
+
+[REMOVED] Dumped the layout/page thing and set pages to render using the post layout... the chances of people wanting their static pages to look wholly different than the rest of the site seems silly and it adds to much to the theme
+
+[REMOVED] Got rid of the "Rage" theme from the default package. I don't like it and I don't want all SimpleLog-based weblogs to look like that, since it's a very specific style and I'm not sure it's best anyway (I like it on Maniacal Rage, but that's just me)
+
+[FIXED] When you submitted a bad comment, the title of the site was incorrect
+
+
+Version 1.5b3
+----------------------------
+
+[NEW] Added new "Pages" section to admin, this allows you to create "static" pages (for things like about or contact pages)
+
+[CHANGED] Removed "SimpleLog:" from the admin nav bar, it's getting too crowded (might need to start redesigning soon)
+
+
+Version 1.5b2
+----------------------------
+
+[FIXED] Post content preview would jump in an out sometimes, display extra links occasionally
+
+[FIXED] Post content preview area wasn't already showing when posting a new post with comment preview turned on
+
+[FIXED] Option to allow subjects in comments was in preferences but field wasn't in theme
+
+[FIXED] Navigation in admin broke to two lines in Windows (admin is now 20px wider)
+
+[FIXED] If comment system was turned off, saving/updating comments failed
+
+[FIXED] Prefs nav item wasn't bold when you were in the prefs section
+
+[FIXED] Forms had different widths to fields/labels in certain sections
+
+[CHANGED] Unapproved comment icon was too light, it's darker now
+
+[NEW] Added icon to key at the top of the comments page to make it clearer about the whole "click to toggle" approval functionality
+
+
+Version 1.5b1
+----------------------------
+
+[FIXED] Improved preference caching and now sites should load MUCH faster, especially in development mode
+
+[FIXED] Fixed bug where site would ask for theme many, many times on each load, slowing down rendering
+
+[FIXED] Fixed bug where tags would show up if there were inactive posts assigned to them [tkt #18]
+
+[CHANGED] Changed the build_tag_block and build_author_block methods to allow you to override the default labels of "Tags:" and "Authors:" [tkt #16]
+
+[FIXED] After posting a new post, you now get sent back to it if you have "return to post" pref turned on [tkt #17]
+
+[FIXED] "Show" link when editing post now hidden if the post is currently saved as inactive [tkt #19]
+
+[FIXED] Trying to view a post that was inactive on the front-end would error, now redirects to / [tkt #19]
+
+[CHANGED] Widened the admin section a little to make room for comments nav item
+
+[NEW] Added commenting functionality (new prefs as well, see "Comment Settings" section) [tkt #11]
+
+[NEW] Added an alternate default theme with comment support
+
+[FIXED] Searching in the admin section was inaccurate if your query contained a single quote [tkt #20]
+
+[NEW] New help questions added
+
+[FIXED] Custom fields were coming through as NULL when they weren't turned on, instead of as '' [tkt #21]
+
+[FIXED] Replaced all find_all and find_first and render_partial references in the app with proper finds, to comply with newer Rails standards
+
+[FIXED] Fixed pagination problems in various admin sections [tkt #23]
+
+[CHANGED] Tweaks to design and admin CSS
+
+[CHANGED] Moved login to admin-controlled RHTML files (there was no good reason to having this be part of the front-end) [tkt #24]
+
+[CHANGED] Rearranged admin views into more logical subdirectories (doesn't affect users, but makes my life easier)
+
+[NEW] Added "Clear theme cache" link to prefs header [tkt #25]
+
+[NEW] Added ability to download blacklist rules from a clearinghouse hosted at simplelog.net
+
+[NEW] Added support for Gravatars (http://gravatar.com)
+
+[CHANGED] Fixed older references to sidebar in default themes description
+
+[CHANGED] Updated README to better help PostgreSQL users
+
+[FIXED] Fixed reference to "Body raw" in posts admin section when there's an error message (now just says "Body") [tkt #41]
+
+[NEW] Added archives by month, archives by day, archives list, added them to existing included themes
+
+[NEW] Added helper method called get_posts() which takes an SQL statement and returns posts based on what you ask for, useful for getting posts in views (say, for instance, if you want to have a list of your favorite posts based on a tag)
+
+
+Version 1.2.1
+----------------------------
+
+[FIXED] Fixed permalinks in the metaWeblog.getPost method that were returning only the actual unique permalink for posts when it should have been returning full URLs (thanks to Brad Choate for tip)
+
+[CHANGED] Updated a few references to SimpleLog 1.1 in UPGRADE_INFO
+
+
+Version 1.2
+----------------------------
+
+[NEW] Fully working XML-RPC API for remote posting from apps like MarsEdit (OS X), ecto (OS X/Win) and Windows Live Writer (Win)
+
+[NEW] Added automatic update checking (SimpleLog will now check for updates automatically by default, you can turn this off)
+
+[NEW] Added admin-section-wide update notification if update is available and auto update check is turned on
+
+[NEW] Added auto update checking preference to preferences, at the bottom, in advanced, also added a simple toggle link in the updates section for ease of use
+
+[CHANGED] Updated the update checking methods to better handle missing connection and errors
+
+[CHANGED] Moved the IMPORTING_DATA readme file into a new directory inside /docs called 'howto'
+
+[NEW] Added instructions for posting from Flickr
+
+[NEW] Added instructions for setting up common clients (MarsEdit, ecto, etc) for posting to your SimpleLog weblog
+
+
+Version 1.1.3
+----------------------------
+
+[FIXED] Fixed a bug where posts would be in random order in the tag archive pages
+
+
+Version 1.1.2
+----------------------------
+
+[FIXED] Fixed a bug created in 1.1.2 where new posts in the DB would have NULL for extended, when they should have an empty string (not really a bug, but a lot of themes' views rely on != '' instead of NULL values)
+
+[NEW] Added migration to clean up NULLs in the DB
+
+
+Version 1.1.1
+----------------------------
+
+[FIXED] Fixed bug where when text filter set to Convert line breaks, blank extended content would come through as <p></p>
+
+[NEW] Added migration to clean up extended content empty paras caused by the blank extended content bug
+
+
+Version 1.1
+----------------------------
+
+[CHANGED] Tweaked the admin layout to widen it a bit, widened some fields, similar stuff
+
+[FIXED] Fixed bug where all posts had NOW as their created_at date even if you changed it
+
+[NEW] Added another text filter option: Convert line breaks (and tweaked the preference description)
+
+[CHANGED] Updated the MT content importer to correctly handle the convert line breaks settings (properly bringing in filter info)
+
+[FIXED] Syndication titles were always being set as the first few words of posts even if simple_titles pref was on
+
+[FIXED] Tweaked MT content importer to use variables in places instead of constantly referencing the prefs table
+
+[CHANGED] Updated the simplelog_themer rake to properly copy over the unknown_request handling view file
+
+[FIXED] Searching in the admin section wasn't returning inactive posts
+
+[NEW] Added two columns to post that create a searchable version of posts (tags stripped, entities fixed, spaces added and removed in places), searching now uses those columns instead (so searches are more accurate now)
+
+[NEW] Added ability to set text filter on a per-post basis, renamed Text Filter preference to Default Text Filter
+
+[CHANGED] Widened some text input fields in the admin section
+
+[FIXED] Fixed a bug where you couldn't change the created_at date in posts
+
+[CHANGED] You now have theme folders named with spaces
+
+[NEW] Added rake to rebuild all posts (useful if you change a text filter option and want to regenerate all content), simplelog_rebuild_posts
+
+[CHANGED] Search redone using library written by Nate McNamara and Duane Johnson, much better now
+
+[NEW] Added migration to remove MySQL fulltext index, since we don't use it now
+
+[CHANGED] Updated documentation
+
+[NEW] Added a help FAQ about the simplelog_rebuild_posts rake task
+
+[FIXED] In the simplelog_themer rake, the version number was coming through as a pref rather than as the actual config value
+
+[NEW] Existing tag block is now hidden by default when in post form
+
+[NEW] Added a preference to show/hide your existing tags block by default when in post form
+
+[NEW] Added a preference to return you to the post after updating rather than the list
+
+[FIXED] simplelog_themer rake wasn't creating a file, search.rhtml, that's needed to use searches in 1.1
+
+[FIXED] Fixed the search path in post views when using simplelog_themer
+
+[CHANGED] simplelog_themer now replaces the reference to Mint in the layout with the updated version from 1.1 to better make older themes compatible with that preference change
+
+[NEW] SimpleLog now works with PostgreSQL (still doesn't work with SQLite, though, and may not in the future...), added an example DB config file called database_postgres.yml
+
+[CHANGED] Many little changes to SQL queries around the app to facilitate non-MySQL DB support
+
+[FIXED] Fixed a bug where empty preference values might cause nil conversion errors, especially in Windows
+
+[NEW] Added utf-8 content type to admin layout (should have been there all along)
+
+[FIXED] *Actually* added a preference to encode entities (I added the pref to the db in beta 2, but neglected to add it to the prefs section... oops!)
+
+[FIXED] Somehow accidentally removed the first field focus that I implemented in beta 2, this is back now
+
+[FIXED] Fixed several bugs with tags relating to special characters, validations on update, blank tags, and tag merging
+
+[NEW] Added migration that sanitizes tags (removes spaces, single- and double-quotes and special characters)
+
+[CHANGED] Changed the Mint Directory preference to Mint Location, so that you could use a subdomain URL for your Mint location if you wanted to
+
+[CHANGED] Updated Default and Rage themes (layouts/post.rhtml) to properly deal with different kinds of Mint Location pref values (you'll need to update your theme's layouts/post.rhtml accordingly if you aren't using one of the built-in themes... it's a simple fix, you can just copy the line from the default theme into yours)
+
+[NEW] Added help item relating to Mint Location preference
+
+[FIXED] In the post form, assigned tags were not being highlighted on load due to the window.onload stack being overwritten by the title field focus
+
+[FIXED] Inactive posts and authors correctly show up as gray in lists again
+
+[NEW] Added an importer for Movable Type 3+ content (and, by nature, TXP and WordPress as well--see IMPORTING_DATA for instructions)
+
+[CHANGED] Updated README
+
+[FIXED] When changing themes in prefs in production mode, the cache is cleared and the theme actually changes
+
+[CHANGED] Removed admin section link visited state, links all look the same now (never should have had a diff state to begin with, really)
+
+[FIXED] If for some reason the permalink auto-generated is blank (if the post content is simply special characters, for instance), the permalink is now set the current time plus microseconds (to be sure it's unique) to avoid blank permalinks
+
+[FIXED] Updated the validations for posts to better handle permalink checking with bad post content (bad XHTML)
+
+[FIXED] Fixed a bug where when submitting a post with an error, tags would get mashed together
+
+[NEW] Added default focus to the logical form item in each admin section where applicable (post form => title, tag form => name, author form => name, ping and updates => button)
+
+[NEW] Added a shortcut link to create a new post to the navigation of the admin section (the [+] next to Posts)
+
+[FIXED] Creating an author resulted in an error when trying to call prepend_http, accidentally made this a class method before
+
+[FIXED] Typo in the regex for checking valid Items on Index preference values
+
+[FIXED] Fixed a bug where the active checkbox in posts would always check itself when editing a post
+
+[FIXED] Updated the regex for author email validation to be smarter (didn't allow _ or - in emails before (d'oh!))
+
+[NEW] Added preference to encode entities in body content (off by default)
+
+[FIXED] Updated a few preference labels so that clicking on the help link doesn't check/uncheck the checkbox
+
+[FIXED] Permalinks are now created using the title of the post if you don't have simple titles pref enabled
+
+[NEW] Added copy to the additional help FAQs
+
+[FIXED] Tests are working again (you can run them by running `rake simplelog_setup`, which will run functional and unit tests)
+
+[FIXED] Fixed a bug in the migration that affected Rails 1.0.0 users
+
+[FIXED] Tags with spaces cannot be created in admin (auto-strips slashes) to prevent bugs, also strips quotes
+
+[NEW] Added ability to change word spacer in permalinks (from '_' to other) (see to_permalink method in Post model for details)
+
+[NEW] Added config option to server.rb to specify if you're using MySQL for full-text search additions
+
+[CHANGED] Moved views to template system to make it easier to upgrade in the future--from now on you won't have to worry about new versions overwriting your views, you can just back up your template and then dump it into an upgraded SimpleLog install (obviously, however, this means upgrading from 1.0 to 1.1 will be a pain... sorry... it's worth it)
+
+[CHANGED] Changed search URL and made search able to accept GET requests if POST not sent, and exposed search page so you can easily build your own full search results page
+
+[CHANGED] Moved preferences to database
+
+[CHANGED] Rearranged post editing form to make things even simpler by having certain sections hidden but show-able (this is, after all, SIMPLE-log)
+
+[NEW] Added RubyPants, the Ruby version of SmartyPants (written by Gruber) which can change quotes to curly quotes, three dots to ellipses, et cetera (preference, off by default)
+
+[NEW] Added two new help questions and answers relating to preference settings
+
+[NEW] Added time offset setting which appropriately deals with server time offsets app-wide
+
+[NEW] Added three custom fields, enabled and named via preferences, that can be used in posts for random things you might need to store and use in your views
+
+[CHANGED] Updated admin section to show correct page titles for each area instead of just "Administration"
+
+[NEW] Added preference to change link text for extended entries
+
+[NEW] Added preference to enable simple titles, where the first five words of your post will be used as its title on the site (instead of its actual title), titles will still always be used in search results
+
+[NEW] Added a new default template (old template remains as well, it's called "Rage")
+
+[CHANGED] Renamed submit buttons in admin section to be more logical in some cases ("Update this post" instead of "Edit this post")
+
+[FIXED] Fixed a few labels in admin forms to actually be labels for their form fields instead of, well, not
+
+[FIXED] Tags will now be stripped of special characters
+
+[NEW] Added simplelog_themer rake task which will make a theme from SimpleLog 1.0 files, to be used in upgrade to 1.1
+
+
+Version 1.0
+----------------------------
+
+Initial release

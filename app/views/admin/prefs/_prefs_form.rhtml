@@ -1,0 +1,212 @@
+<% cfl = Site.check_for_local_domain(get_pref('domain')) -%>
+<div id="pt_site_details">
+<table class="form" cellpadding="0" cellspacing="0">
+
+<tr class="breaker btop"><td colspan="2">Site Details</td></tr>
+
+<tr><td class="labels"><label for="preferences[domain]"><b><%= @prefs_hash['domain']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('domain') %><div class="fieldWithErrors"><% end %>
+<% if cfl -%><span class="red small"><b>Warning:</b> You appear to have an incorrect domain setting! Please verify this and save your preferences.<br/></span><% end -%><%= text_field_tag 'preferences[domain]', @prefs_hash['domain']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['domain']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['domain']['description'] %></span><% end %><% if fields.index('domain') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[site_name]"><b><%= @prefs_hash['site_name']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('site_name') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[site_name]', @prefs_hash['site_name']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['site_name']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['site_name']['description'] %></span><% end %><% if fields.index('site_name') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[slogan]"><%= @prefs_hash['slogan']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[slogan]', @prefs_hash['slogan']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['slogan']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['slogan']['description'] %></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[site_description]"><%= @prefs_hash['site_description']['nice_name'] %></label></td><td class="fields">
+<%= text_area_tag 'preferences[site_description]', @prefs_hash['site_description']['value'], :rows => '4', :cols => '57', :class => 'normal_i_width' %><% if @prefs_hash['site_description']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['site_description']['description'] %></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[site_primary_author]"><b><%= @prefs_hash['site_primary_author']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('site_primary_author') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[site_primary_author]', @prefs_hash['site_primary_author']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['site_primary_author']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['site_primary_author']['description'] %></span><% end %><% if fields.index('site_primary_author') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[author_email]"><b><%= @prefs_hash['author_email']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('author_email') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[author_email]', @prefs_hash['author_email']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['author_email']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['author_email']['description'] %></span><% end %><% if fields.index('author_email') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[author_gender]"><%= @prefs_hash['author_gender']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_select('preferences[author_gender]', ['male', 'female'], @prefs_hash['author_gender']['value']) %><% if @prefs_hash['author_gender']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['author_gender']['description'] %></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[offset]"><b><%= @prefs_hash['offset']['nice_name'] %></b></label></td><td class="fields">
+<%= create_pref_offset_select('preferences[offset]', @prefs_hash['offset']['value']) %><% if @prefs_hash['offset']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['offset']['description'] %></span><% end %></td></tr>
+
+</table>
+</div>
+
+<div id="pt_display_settings" style="display: none;">
+<table class="form" cellpadding="0" cellspacing="0">
+    
+<tr class="breaker btop"><td colspan="2">Display Settings</td></tr>
+
+<%
+# gets a list of available themes and their authors, puts it into an array for use
+available_themes = []
+for t in Theme.find_all
+    temp_hash = Hash.new
+    temp_hash['name'] = t.name.titlecase + (t.written_by and t.written_by != '' ? ', by ' + t.written_by : '')
+    temp_hash['value'] = t.name
+    available_themes[available_themes.length] = temp_hash
+end
+-%>
+<tr><td class="labels"><label for="preferences[current_theme]"><b><%= @prefs_hash['current_theme']['nice_name'] %></b></label></td><td class="fields">
+<%= create_pref_theme_select('preferences[current_theme]', available_themes, @prefs_hash['current_theme']['value']) %><% if @prefs_hash['current_theme']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['current_theme']['description'] %></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[items_on_index]"><b><%= @prefs_hash['items_on_index']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('items_on_index') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[items_on_index]', @prefs_hash['items_on_index']['value'], :size => '3', :maxlength => 3 %><% if @prefs_hash['items_on_index']['description'] != '' %>&nbsp;<span class="small gray"><%= @prefs_hash['items_on_index']['description'] %></span><% end %><% if fields.index('items_on_index') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[items_in_feed]"><b><%= @prefs_hash['items_in_feed']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('items_in_feed') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[items_in_feed]', @prefs_hash['items_in_feed']['value'], :size => '3', :maxlength => 3 %><% if @prefs_hash['items_in_feed']['description'] != '' %>&nbsp;<span class="small gray"><%= @prefs_hash['items_in_feed']['description'] %></span><% end %><% if fields.index('items_in_feed') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[search_results]"><b><%= @prefs_hash['search_results']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('search_results') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[search_results]', @prefs_hash['search_results']['value'], :size => '3', :maxlength => 3 %><% if @prefs_hash['search_results']['description'] != '' %>&nbsp;<span class="small gray"><%= @prefs_hash['search_results']['description'] %></span><% end %><% if fields.index('search_results') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[search_results_full]"><b><%= @prefs_hash['search_results_full']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('search_results_full') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[search_results_full]', @prefs_hash['search_results_full']['value'], :size => '3', :maxlength => 3 %><% if @prefs_hash['search_results_full']['description'] != '' %>&nbsp;<span class="small gray"><%= @prefs_hash['search_results_full']['description'] %></span><% end %><% if fields.index('search_results_full') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[warn_bad_browsers]"><%= @prefs_hash['warn_bad_browsers']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[warn_bad_browsers]', @prefs_hash['warn_bad_browsers']['value'], @prefs_hash['warn_bad_browsers']['description']) %></td></tr>
+
+<tr><td class="labels"><label for="preferences[show_author_of_post]"><%= @prefs_hash['show_author_of_post']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[show_author_of_post]', @prefs_hash['show_author_of_post']['value'], @prefs_hash['show_author_of_post']['description']) %></td></tr>
+
+<tr><td class="labels"><label for="preferences[time_format]"><b><%= @prefs_hash['time_format']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('time_format') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[time_format]', @prefs_hash['time_format']['value'], :size => '20' %><% if @prefs_hash['time_format']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['time_format']['description'] %></span><% end %><% if fields.index('time_format') %></div><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[date_format]"><b><%= @prefs_hash['date_format']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('date_format') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[date_format]', @prefs_hash['date_format']['value'], :size => '20' %><% if @prefs_hash['date_format']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['date_format']['description'] %></span><% end %><% if fields.index('date_format') %></div><% end %></td></tr>
+
+<tr class="breaker"><td colspan="2">Global Content Settings</td></tr>
+
+<tr><td class="labels"><label for="preferences[text_filter]"><b><%= @prefs_hash['text_filter']['nice_name'] %></b></label></td><td class="fields">
+<%= create_pref_select('preferences[text_filter]', ['markdown', 'textile', 'convert line breaks', 'plain text'], @prefs_hash['text_filter']['value']) %><% if @prefs_hash['text_filter']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['text_filter']['description'] %></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[smarty_pants]"><%= @prefs_hash['smarty_pants']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[smarty_pants]', @prefs_hash['smarty_pants']['value'], @prefs_hash['smarty_pants']['description']) %></td></tr>
+
+<tr><td class="labels"><label for="preferences[nice_dashes]"><%= @prefs_hash['nice_dashes']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[nice_dashes]', @prefs_hash['nice_dashes']['value'], @prefs_hash['nice_dashes']['description']) %></td></tr>
+
+<tr><td class="labels"><label for="preferences[encode_entities]"><%= @prefs_hash['encode_entities']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[encode_entities]', @prefs_hash['encode_entities']['value'], @prefs_hash['encode_entities']['description']) %></td></tr>
+
+<tr><td class="labels"><label for="preferences[encoding]"><b><%= @prefs_hash['encoding']['nice_name'] %></b></label></td><td class="fields">
+<%= create_pref_select('preferences[encoding]', ['utf-8', 'iso-8859-1', 'windows-1251'], @prefs_hash['encoding']['value'], false) %><% if @prefs_hash['encoding']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['encoding']['description'] %></span><% end %></td></tr>
+
+</table>
+</div>
+
+<div id="pt_content_settings" style="display: none;">
+<table class="form" cellpadding="0" cellspacing="0">
+
+<tr class="breaker btop"><td colspan="2">Posts</td></tr>
+
+<tr id="ps1"><td class="labels"><label for="preferences[simple_titles]"><%= @prefs_hash['simple_titles']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[simple_titles]', @prefs_hash['simple_titles']['value'], @prefs_hash['simple_titles']['description']) %></td></tr>
+
+<tr id="ps2"><td class="labels"><label for="preferences[ping_by_default]"><%= @prefs_hash['ping_by_default']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[ping_by_default]', @prefs_hash['ping_by_default']['value'], @prefs_hash['ping_by_default']['description']) %></td></tr>
+
+<tr id="ps3"><td class="labels"><label for="preferences[preview_by_default]"><%= @prefs_hash['preview_by_default']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[preview_by_default]', @prefs_hash['preview_by_default']['value'], @prefs_hash['preview_by_default']['description']) %></td></tr>
+
+<tr id="ps4"><td class="labels"><label for="preferences[new_post_by_default]"><%= @prefs_hash['new_post_by_default']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[new_post_by_default]', @prefs_hash['new_post_by_default']['value'], @prefs_hash['new_post_by_default']['description']) %></td></tr>
+
+<tr id="ps9"><td class="labels"><label for="preferences[all_tags_by_default]"><%= @prefs_hash['all_tags_by_default']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[all_tags_by_default]', @prefs_hash['all_tags_by_default']['value'], @prefs_hash['all_tags_by_default']['description']) %></td></tr>
+
+<tr id="ps10"><td class="labels"><label for="preferences[return_to_post]"><%= @prefs_hash['return_to_post']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[return_to_post]', @prefs_hash['return_to_post']['value'], @prefs_hash['return_to_post']['description']) %></td></tr>
+
+<tr id="ps5"><td class="labels"><label for="preferences[extended_link_text]"><b><%= @prefs_hash['extended_link_text']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('extended_link_text') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[extended_link_text]', @prefs_hash['extended_link_text']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['extended_link_text']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['extended_link_text']['description'] %></span><% end %><% if fields.index('extended_link_text') %></div><% end %></td></tr>
+
+<tr id="ps6"><td class="labels"><label for="preferences[custom_field_1_on]"><%= @prefs_hash['custom_field_1']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[custom_field_1_on]', @prefs_hash['custom_field_1_on']['value'], @prefs_hash['custom_field_1_on']['description']) %><span class="small gray"><%= @prefs_hash['custom_field_1']['description'] %></span><%= text_field_tag 'preferences[custom_field_1]', @prefs_hash['custom_field_1']['value'], :size => '20' %></td></tr>
+
+<tr id="ps7"><td class="labels"><label for="preferences[custom_field_2_on]"><%= @prefs_hash['custom_field_2']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[custom_field_2_on]', @prefs_hash['custom_field_2_on']['value'], @prefs_hash['custom_field_2_on']['description']) %><span class="small gray"><%= @prefs_hash['custom_field_2']['description'] %></span><%= text_field_tag 'preferences[custom_field_2]', @prefs_hash['custom_field_2']['value'], :size => '20' %></td></tr>
+
+<tr id="ps8"><td class="labels"><label for="preferences[custom_field_3_on]"><%= @prefs_hash['custom_field_3']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[custom_field_3_on]', @prefs_hash['custom_field_3_on']['value'], @prefs_hash['custom_field_3_on']['description']) %><span class="small gray"><%= @prefs_hash['custom_field_3']['description'] %></span><%= text_field_tag 'preferences[custom_field_3]', @prefs_hash['custom_field_3']['value'], :size => '20' %></td></tr>
+
+<tr class="breaker"><td colspan="2">Comments</td></tr>
+
+<tr id="cs1"><td class="labels"><label for="preferences[commenting_on]"><%= @prefs_hash['commenting_on']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[commenting_on]', @prefs_hash['commenting_on']['value'], @prefs_hash['commenting_on']['description']) %></td></tr>
+
+<tr id="cs2"><td class="labels"><label for="preferences[comment_default]"><%= @prefs_hash['comment_default']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[comment_default]', @prefs_hash['comment_default']['value'], @prefs_hash['comment_default']['description']) %></td></tr>
+
+<tr id="cs3"><td class="labels"><label for="preferences[comments_approved]"><%= @prefs_hash['comments_approved']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[comments_approved]', @prefs_hash['comments_approved']['value'], @prefs_hash['comments_approved']['description']) %></td></tr>
+
+<tr id="cs4"><td class="labels"><label for="preferences[comment_subjects]"><%= @prefs_hash['comment_subjects']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[comment_subjects]', @prefs_hash['comment_subjects']['value'], @prefs_hash['comment_subjects']['description']) %></td></tr>
+
+<tr id="cs5"><td class="labels"><label for="preferences[comment_preview_by_default]"><%= @prefs_hash['comment_preview_by_default']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[comment_preview_by_default]', @prefs_hash['comment_preview_by_default']['value'], @prefs_hash['comment_preview_by_default']['description']) %></td></tr>
+
+<tr id="cs6"><td class="labels"><label for="preferences[return_to_comment]"><%= @prefs_hash['return_to_comment']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[return_to_comment]', @prefs_hash['return_to_comment']['value'], @prefs_hash['return_to_comment']['description']) %></td></tr>
+
+<tr id="cs7"><td class="labels"><label for="preferences[show_gravatars]"><%= @prefs_hash['show_gravatars']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[show_gravatars]', @prefs_hash['show_gravatars']['value'], @prefs_hash['show_gravatars']['description']) %></td></tr>
+
+<tr class="breaker"><td colspan="2">Pages</td></tr>
+
+<tr id="sp1"><td class="labels"><label for="preferences[return_to_page]"><%= @prefs_hash['return_to_page']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[return_to_page]', @prefs_hash['return_to_page']['value'], @prefs_hash['return_to_page']['description']) %></td></tr>
+
+</table>
+</div>
+
+<div id="pt_meta_information" style="display: none;">
+<table class="form" cellpadding="0" cellspacing="0">
+
+<tr class="breaker btop"><td colspan="2">Meta Information</td></tr>
+
+<tr id="mi1"><td class="labels"><label for="preferences[copyright_year]"><b><%= @prefs_hash['copyright_year']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('copyright_year') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[copyright_year]', @prefs_hash['copyright_year']['value'], :size => '4', :maxlength => 4 %><% if @prefs_hash['copyright_year']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['copyright_year']['description'] %></span><% end %><% if fields.index('copyright_year') %></div><% end %></td></tr>
+
+<tr id="mi2"><td class="labels"><label for="preferences[icbm]"><%= @prefs_hash['icbm']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[icbm]', @prefs_hash['icbm']['value'], :size => '40' %><% if @prefs_hash['icbm']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['icbm']['description'] %></span><% end %></td></tr>
+
+<tr id="mi3"><td class="labels"><label for="preferences[issn]"><%= @prefs_hash['issn']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[issn]', @prefs_hash['issn']['value'], :size => '15' %><% if @prefs_hash['issn']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['issn']['description'] %></span><% end %></td></tr>
+
+<tr id="mi4"><td class="labels"><label for="preferences[esbn]"><%= @prefs_hash['esbn']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[esbn]', @prefs_hash['esbn']['value'], :size => '40' %><% if @prefs_hash['esbn']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['esbn']['description'] %></span><% end %></td></tr>
+
+<tr id="mi5"><td class="labels"><label for="preferences[email_subject]"><b><%= @prefs_hash['email_subject']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('email_subject') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[email_subject]', @prefs_hash['email_subject']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['email_subject']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['email_subject']['description'] %></span><% end %><% if fields.index('email_subject') %></div><% end %></td></tr>
+
+</table>
+</div>
+
+<div id="pt_advanced_settings" style="display: none;">
+<table class="form" cellpadding="0" cellspacing="0">
+
+<tr class="breaker btop"><td colspan="2">Advanced Settings</td></tr>
+
+<tr id="av6"><td class="labels"><label for="preferences[archive_token]"><%= @prefs_hash['archive_token']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_select('preferences[archive_token]', ['archives', 'older', 'past'], @prefs_hash['archive_token']['value'], false) %><% if @prefs_hash['archive_token']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['archive_token']['description'] %></span><% end %></td></tr>
+
+<tr id="av1"><td class="labels"><label for="preferences[rss_url]"><%= @prefs_hash['rss_url']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[rss_url]', @prefs_hash['rss_url']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['rss_url']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['rss_url']['description'] %></span><% end %></td></tr>
+
+<tr id="av2"><td class="labels"><label for="preferences[error_page_title]"><%= @prefs_hash['error_page_title']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[error_page_title]', @prefs_hash['error_page_title']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['error_page_title']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['error_page_title']['description'] %></span><% end %></td></tr>
+
+<tr id="av3"><td class="labels"><label for="preferences[mint_dir]"><%= @prefs_hash['mint_dir']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[mint_dir]', @prefs_hash['mint_dir']['value'], :size => '30' %><% if @prefs_hash['mint_dir']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['mint_dir']['description'] %></span><% end %></td></tr>
+
+<tr id="av4"><td class="labels"><label for="preferences[delicious_username]"><%= @prefs_hash['delicious_username']['nice_name'] %></label></td><td class="fields">
+<%= text_field_tag 'preferences[delicious_username]', @prefs_hash['delicious_username']['value'], :size => '20' %><% if @prefs_hash['delicious_username']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['delicious_username']['description'] %></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="preferences[language]"><b><%= @prefs_hash['language']['nice_name'] %></b></label></td><td class="fields"><% if fields.index('language') %><div class="fieldWithErrors"><% end %>
+<%= text_field_tag 'preferences[language]', @prefs_hash['language']['value'], :size => '8' %><% if @prefs_hash['language']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['language']['description'] %></span><% end %><% if fields.index('language') %></div><% end %></td></tr>
+
+<tr id="av5"><td class="labels"><label for="preferences[check_for_updates]"><%= @prefs_hash['check_for_updates']['nice_name'] %></label></td><td class="fields">
+<%= create_pref_bool('preferences[check_for_updates]', @prefs_hash['check_for_updates']['value'], @prefs_hash['check_for_updates']['description']) %></td></tr>
+
+</table>
+</div>

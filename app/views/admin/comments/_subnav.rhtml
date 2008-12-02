@@ -1,0 +1,29 @@
+<% if ep %>
+
+    <div id="admin_sub_nav">
+        <div class="sn_left wider">
+            This comment is currently <% if @comment.is_approved %><b>approved</b> and can be <%= link_to 'viewed on your site', Post.permalink(@comment.post) + '#c' + @comment.id.to_s, :target => '_blank' %>.<% else -%>unapproved and <b>cannot</b> be viewed on your site.<% end -%>
+        </div>
+        <div class="sn_right narrower">
+            <%= link_to '&larr; Return to the comments list', Site.full_url + '/admin/comments' %>
+        </div><br/>
+    </div>
+
+<% else %>
+    
+    <div id="admin_sub_nav">
+        <div class="sn_left wider">
+            <% form_tag(Site.full_url + '/admin/comments/search', :id => 'comment_search_form') do -%>
+            <%= link_to '<b>View the blacklist</b>', Site.full_url + '/admin/blacklist' %> or search comments:&nbsp;<%= text_field_tag('q', (params[:q] != '' ? params[:q] : ''), :id => 'sf') %>
+            <% end -%>
+        </div>
+        <div class="sn_right narrower">
+        <% if get_pref('COMMENTING_ON') == 'yes' -%>
+            <%= link_to 'Approve', Site.full_url + '/admin/comments/approve/all', :confirm => "You are about to approve all unapproved comments.\n\nAre you ABSOLUTELY sure?" %> or <%= link_to 'delete', Site.full_url + '/admin/comments/delete/unapproved', :confirm => "You are about to delete all unapproved comments. This is permanent.\n\nAre you ABSOLUTELY sure?" %> all unapproved comments?
+        <% else -%>
+            Comments system is turned off. <%= link_to 'Turn it on?', Site.full_url + '/admin/comments/toggle' %>
+        <% end -%>
+        </div><br/>
+    </div>
+    
+<% end %>

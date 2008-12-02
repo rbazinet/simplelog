@@ -1,0 +1,13 @@
+# $Id: tags.yml 36 2006-05-01 20:46:38Z garrett $
+
+tag_1:
+  id: 1
+  name: tag_one
+
+tag_2:
+  id: 2
+  name: tag_two
+  
+tag_3:
+  id: 3
+  name: tag_three

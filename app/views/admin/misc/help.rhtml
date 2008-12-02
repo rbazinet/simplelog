@@ -1,0 +1,95 @@
+<%= render :partial => 'admin/misc/subnav', :locals => {:hp => true, :ud => false} %>
+
+<div id="header">
+	<h1>Frequently Asked Questions</h1>
+	<h2>&nbsp;</h2><br/>
+</div>
+
+<table class="home" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="no_pad">
+			<ol>
+				<li><a href="#hq1">How much does SimpleLog cost?</a></li>
+				<li><a href="#hq2">What are the terms of the license?</a></li>
+				<li><a href="#hq3">How do I report a bug or send feedback?</a></li>
+				<li><a href="#hq4">Could you suggest a hosting provider for this app?</a></li>
+				<li><a href="#hq5">How do I use multi-word tags?</a></li>
+				<li><a href="#hq6">What does "ping" mean?</a></li>
+				<li><a href="#hq7">Where is [x] feature?</a></li>
+				<li><a href="#hq8">How do I merge two tags?</a></li>
+				<li><a href="#hq9">What does the "RSS link location" preference do?</a></li>
+				<li><a href="#hq10">What do the "Custom field" preferences do?</a></li>
+				<li><a href="#hq11">What does the "Use simple titles" preference do?</a></li>
+				<li><a href="#hq12">Why do I still need a title when I have "Use simple titles" enabled?</a></li>
+				<li><a href="#hq13">How should I enter my "Mint location"?</a></li>
+				<li><a href="#hq14">How can I rebuild all posts?</a></li>
+				<li><a href="#hq15">How do I use the blacklist?</a> <span class="new">NEW!</span></li>
+				<li><a href="#hq16">What are pages?</a> <span class="new">NEW!</span></li>
+				<li><a href="#hq17">How do I enable/disable comments?</a> <span class="new">NEW!</span></li>
+				<li><a href="#hq18">Changes to my theme aren't appearing!</a> <span class="new">NEW!</span></li>
+				<li><a href="#hq999">I have a question that isn't answered here!</a></li>
+			</ol>
+			
+			<p>&nbsp;</p>
+			
+			<p><a id="hq1"></a><b>How much does SimpleLog cost?</b><br/>
+			SimpleLog is <i>donationware</i>. It's free to use, but donations are appreciated. 50% of all donations made will be given to <a href="http://nationalmssociety.org" title="The National MS Society">The National MS Society</a> If you wish to donate, visit <a href="http://simplelog.net/donate" title="Donate">http://simplelog.net/donate</a>.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq2"></a><b>What are the terms of the license?</b><br/>
+			SimpleLog is copyright &copy;2006-2007 <a href="http://garrettmurray.net" title="Garrett Murray">Garrett Murray</a>. This application is released under the GPL license&mdash;this program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. In short, SimpleLog is free. Free as in freedom. See the doc/LICENSE file for more details.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq3"></a><b>How do I report a bug or send feedback?</b><br/>
+			Feel free to send feedback to <%= link_to 'feedback@simplelog.net', 'mailto:feedback@simplelog.net?Subject=[SimpleLog] Feedback', :title => 'Send feedback' %> or bug reports to <%= link_to 'bugs@simplelog.net', 'mailto:bugs@simplelog.net?Subject=[SimpleLog] Bug report', :title => 'Send a bug report' %>. When sending bug reports, please <i>be as specific as possible</i> and send useful log bits if you can.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq4"></a><b>Could you suggest a hosting provider for this app?</b><br/>
+			We suggest <a href="http://mr.segpub.com.au" title="Segment Publishing">Segment Publishing</a> for hosting SimpleLog or any Rails application (or anything else for that matter). Segpub has the fastest Rails hosting in the world, and their support is unbeatable. You get what you pay for, and when you choose Segpub, what you're paying for is service of the highest quality. And seriously, we don't get a penny for saying that or referring you.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq5"></a><b>How do I use multi-word tags?</b><br/>
+			Mutli-word tags are not supported in SimpleLog for a variety of reasons, the biggest of which is that they're not necessary. SimpleLog follows the <a href="http://del.icio.us" title="del.icio.us">del.icio.us</a> school of tagging, in which all tags must be a single word and tags are entered with space separation. It's easy, however, to create a tag that is a combination of words. For example, to tag an entry about Ruby on Rails, use <code>rubyonrails</code>. Believe it or not, this simplification will make your life easier.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq6"></a><b>What does "ping" mean?</b><br/>
+			SimpleLog uses <a href="http://pingomatic.com" title="Ping-o-Matic">Ping-o-Matic</a> to send a ping to all of the common notification services (like Weblogs.com and Technorati). When you ping with SimpleLog (either manually in the <a href="<%= Site.full_url %>/admin/ping" title="Ping">ping</a> section, or automatically when creating/editing <a href="<%= Site.full_url %>/admin/posts" title="Posts">posts</a>), we send your site's name and URL to Ping-o-Matic, which then pings all common services. You can disable automatic pinging on a temporary basis by unchecking the "Send ping" box in the post editor, and you can disable it by default by editing your preferences.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq7"></a><b>Where is [x] feature?</b><br/>
+			SimpleLog is <i>purposefully simplistic</i>. Our motto is <i>Do less, write more</i>, and we mean it. Forget about everything but writing and you'll find that, well, you actually do more writing. Most of today's "modern" weblog application are bloated and full of features you'd rarely use&mdash;you spend more time using the admin section and setting the weblog up and playing with options than you do producing content!</p><p>That said, SimpleLog is written in the lovely <a href="http://rubyonrails.com" title="Ruby on Rails">Ruby on Rails</a>, which means that adding features is a breeze. Feel free to extend SimpleLog if you need to, or to add plugins (or write your own and distribute them). But before you go adding a ton of features, try using SimpleLog in its basic form and see if you get more done.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq8"></a><b>How do I merge two tags?</b><br/>
+			Merging tags allows you to combine two tags and automatically update all posts tagged with either to reflect the new, merged tag. For example: Let's say you have two tags, <code>test</code> and <code>testing</code>, and each tag has been assigned to various posts. Now, you've decided that those two tags are basically the same thing, so you want to merge them into one and have all posts assigned with <i>either</i> tag to be assigned only the merged tag.</p><p>All you have to do is rename one of the tags to the name of the other (i.e. rename <code>test</code> to <code>testing</code>), and SimpleLog will automatically merge the two together, and update all posts so that they're tagged with only <code>testing</code>. This is especially useful if you accidentally create two tags (like, say, <code>car</code> and <code>cars</code>)&mdash;you won't have to go through and update posts by hand.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq9"></a><b>What does the "RSS link location" preference do?</b><br/>
+			SimpleLog creates a full-text RSS feed automatically at yoursite.com/rss, but you might wish to overwrite this location in a few cases. For instance, if you use FeedBurner, you should set this URL to the FeedBurner URL (ex: http://feedburner.com/myfeed) and tell FeedBurner to look for your feed source at http://yoursite.com/rss. Another reason you might want to change this is if you create an RSS subdomain (rss.yoursite.com) and have a forwarder there that redirects to yoursite.com/rss.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq10"></a><b>What do the "Custom field" preferences do?</b><br/>
+			Occasionally, you might want to store data that doesn't fit within the standard realm of a weblog post. For instance, if you're writing a movie review, you might want to keep the score for the movie separate from the actual post content. You can use custom fields for this. Simply name and enable a custom field in preferences, and it will be available to you when editing a post. You can then use this data in your themes by yielding <code>&lt;%= post.custom_field_1 %&gt;</code> and so on.</p><p>Note that disabling custom fields will still show the data in your theme, but the fields won't appear for editing in the post admin section. This is by design&mdash;you might decide you never again wish to write a movie review, but you'll want your previous reviews to still have their data.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq11"></a><b>What does the "Use simple titles" preference do?</b><br/>
+			This preference uses the first few words of your post as its title, instead of its actual title. This is purely a style decision&mdash;you might prefer the more casual look of having "My post content is great..." instead of the more standard "My First Post" in your feed and on your site. This option was created primarily so that the author could avoid having to think of great and useful titles. When you enable this preference, the first few words of your post's content will be used as its title on the site, in the feed, and for permalinks. See <a href="#hq12" title="Help: Why do I still need a title when I have &quot;Use simple titles&quot; enabled?">Why do I still need a title when I have "Use simple titles" enabled?</a> for further information.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq12"></a><b>Why do I still need a title when I have "Use simple titles" enabled?</b><br/>
+			Since the whole point of enabling this preference is to avoid having to write titles, it seems fairly ironic that titles are still included when posting. Unfortunately, there's no good way around this because of the way search results need to be displayed. If you have "Use simple titles" enabled, your post titles are <i>only</i> used in search results. We're trying to think of a good way to display search results that won't require this in the future.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq13"></a><b>How should I enter my "Mint location"?</b><br/>
+			If you've installed Mint into a subdirectory, enter your location from the root. For example, <code>/mint</code>. If you installed into a subdirectory, include the full URL (with http://) to Mint. For example, <code>http://mint.simplelog.net</code>.</p><p>Obviously, you must have Mint installed for this to work. If you don't have Mint installed, you can leave this preference blank.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq14"></a><b>How can I rebuild all posts?</b><br/>
+			Occasionally, you might need to rebuild all of your posts (say, if you change the text filter or turn on another content feature like SmartyPants, and want your old content to be updated with these settings). It's quite easy&mdash;Simply run the following Rake task: <code>rake simplelog:content:rebuild</code></p><p>This process could take a few minutes, depending on how many posts you have. Once it's finished, you'll have freshly rendered content. You can run this Rake task as many times as you want.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq15"></a><b>How do I use the blacklist?</b> <span class="new">NEW!</span><br/>
+			The <a href="<%= Site.full_url %>/admin/blacklist" title="Blacklist">blacklist</a> is a simple way to keep spam comments from getting posted on your site. In addition to comment approval (which we suggest you keep enabled), it's easy to maintain your comment spam level. By default, SimpleLog's blacklist is filled with a known list of offenders. To add further entries you can type in items separated by linebreaks or you can click on the "Add to blacklist" links next to data in the comment editor. You can also import all the rules from the SimpleLog clearing house, which is located on the SimpleLog server and updated regularly. Note that you can use regular expression syntax in your blacklist rules for more flexibility.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq16"></a><b>What are pages?</b> <span class="new">NEW!</span><br/>
+			Pages are "static" pages of content that allow you to create non-post-related sections of your site. For instance, you might want a page that's about you. You could create this in the <a href="<%= Site.full_url %>/admin/pages" title="Pages">pages</a> section with a link something like "about" and then you'd link to it at <code>yoursite.com/pages/about</code>. You can also use static pages to create a plethora of non-post content sections.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq17"></a><b>How do I enable/disable comments?</b> <span class="new">NEW!</span><br/>
+			To enable/disable comments, turn the system on/off in <a href="<%= Site.full_url %>/admin/prefs" title="Preferences">preferences</a> in the "Comment settings" section. To show comments and the comments form in your theme, you'll need to either use the default "simplelog" theme that's included with SimpleLog, or copy/paste the necessary code from that theme to yours. You'll find the code you need in <code>themes/simplelog/views/posts/_item.rhtml</code> and <code>themes/simplelog/views/posts/_item_detailed.rhtml</code>. It's surrounded by ruby comments for clarity.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq18"></a><b>Changes to my theme aren't appearing!</b> <span class="new">NEW!</span><br/>
+			In production mode, all theme content is cached for speed. Therefore, if you make changes, they won't appear on your site. To make sure all cached content gets dumped and re-cached, simply visit the <a href="<%= Site.full_url %>/admin/prefs" title="Preferences">preferences</a> section and click the "Clear the theme cache" link. Also note that the cache is cleared each time you save your preferences.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<p><a id="hq999"></a><b>I have a question that isn't answered here!</b><br/>
+			Check the <%= link_to 'SimpleLog wiki', 'http://wiki.simplelog.net', :target => '_blank', :title => 'SimpleLog wiki' %> for more information and documentation (requires internet connection) or send your question to <%= link_to 'support@simplelog.net', 'mailto:support@simplelog.net?Subject=[SimpleLog] Question', :title => 'Send your question' %> and we'll do our best to answer it as quickly as we can.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
+			
+			<div style="height: 600px;">&nbsp;</div>
+		</td>
+	</tr>
+</table>

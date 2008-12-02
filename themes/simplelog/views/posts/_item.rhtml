@@ -1,0 +1,20 @@
+<!-- this is post id <%= post.id %> -->
+
+<div class="item">
+    <div class="item_details">
+        <h3><%= post.title %></h3>
+        <h4>Posted <%= author_info(post) %> on <%= date_time_linked(post) %></h4>
+    </div>
+    <div class="item_content">
+        <%= post.body %>
+        <%= extended_content_link(post) %>
+    </div>
+    <div class="item_meta">
+        <%# Copy this into your view if you want to show comment information -%>
+        <% if Site.comment_system_on %><span class="item_comments">Comments: <%= comment_info(post) %></span><% end %>
+        <%# End comment information -%>
+        <span class="item_tags">Tags: <%= tag_info(post) %></span>
+    </div>
+</div>
+
+<!-- end post id <%= post.id %> -->

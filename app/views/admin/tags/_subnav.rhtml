@@ -1,0 +1,51 @@
+<% if np %>
+    
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            You're creating a new tag.
+        </div>
+        <div class="sn_right">
+            <%= link_to '&larr; Return to the tags list', Site.full_url + '/admin/tags' %>
+        </div><br/>
+    </div>
+    
+<% elsif ep %>
+
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <% if @posts.length < 1 %>
+               There are no posts currently tagged with &quot;<%= (@tag.name and @tag.name != '' ? @tag.name : params[:old_name]) %>&quot;
+            <% else %>
+                <%= link_to '<b>View a list</b>', Site.full_url + '/admin/tags/show/' + @tag.id.to_s %> of posts tagged with &quot;<%= (@tag.name and @tag.name != '' ? @tag.name : params[:old_name]) %>&quot; (currently: <%= @posts.length.to_s %>)
+            <% end %>
+        </div>
+        <div class="sn_right">
+            <%= link_to '&larr; Return to the tags list', Site.full_url + '/admin/tags' %>
+        </div><br/>
+    </div>
+    
+<% elsif sh %>
+
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <%= link_to '<b>Go back to this tag</b>', Site.full_url + '/admin/tags/edit/' + @tag.id.to_s %> to continue editing.
+        </div>
+        <div class="sn_right">
+            <%= link_to '&larr; Return to the tags list', Site.full_url + '/admin/tags' %>
+        </div><br/>
+    </div>
+
+<% else %>
+    
+    <% form_tag(Site.full_url + '/admin/tags/search', :id => 'tag_search_form') do %>
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <%= link_to '<b>Create a new tag</b>', Site.full_url + '/admin/tags/new' %> or search them:&nbsp;<%= text_field_tag('q', (params[:q] != '' ? params[:q] : ''), :id => 'sf') %>
+        </div>
+        <div class="sn_right">
+            Merge tags by renaming them to the same name.
+        </div><br/>
+    </div>
+    <% end -%>
+    
+<% end %>

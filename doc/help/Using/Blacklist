@@ -1,0 +1,133 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>SimpleLog wiki | Using / Blacklist </title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel='stylesheet' href='../pmwiki/pub/skins/pmwiki/pmwiki.css' type='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<!--PageHeaderFmt-->
+  <div id='wikilogo'><a href='../index.html'><img src='../pmwiki/pub/skins/pmwiki/pmwiki-32.gif'
+    alt='SimpleLog wiki' border='0' /></a></div>
+  <div id='wikihead'>
+  <!-- <form action='http://wiki.simplelog.net'>
+    <span class='headnav'><a href='http://wiki.simplelog.net/Using/RecentChanges'
+      accesskey='c'>Recent Changes</a> -</span>
+    <input type='hidden' name='n' value='Using.Blacklist' />
+    <input type='hidden' name='action' value='search' />
+    <a href='http://wiki.simplelog.net/Site/Search'>Search</a>:
+    <input type='text' name='q' value='' class='inputbox searchbox' />
+    <input type='submit' class='inputbutton searchbutton'
+      value='Go' /></form> --></div>
+<!--/PageHeaderFmt-->
+  <table id='wikimid' width='100%' cellspacing='0' cellpadding='0'><tr>
+<!--PageLeftFmt-->
+      <td id='wikileft' valign='top'>
+        <p class='sidehead'> <span class='wikiword'>SimpleLog</span> wiki
+</p><ul><li><a class='wikilink' href='../Main/HomePage'>Home</a>
+</li><li><a class='wikilink' href='../Main/About'>About SimpleLog</a>
+</li><li><a class='wikilink' href='../Main/Acknowledgments'>Acknowledgments</a>
+</li><li><a class='wikilink' href='../Main/License'>License</a>
+</li><li><a class='wikilink' href='../External/SitesUsingSimpleLog'>Sites using SimpleLog</a>
+</li><li><a class='urllink' href='http://simplelog.net' rel='nofollow'>Back to simplelog.net</a>
+</li></ul><p class='vspace sidehead'> Installing <span class='wikiword'>SimpleLog</span>
+</p><ul><li><a class='wikilink' href='../Installing/BeforeYouInstall'>Before you install</a>
+</li><li><a class='wikilink' href='../Installing/Installation'>Installation</a>
+</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='../Installing/UsingSimpleLogWithMTgs'>MT(gs) users</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='../Installing/UsingSimpleLogWithDreamHost'>DreamHost users</a>
+</p><ul><li><a class='wikilink' href='../Installing/NextSteps'>Next steps</a>
+</li></ul><p class='vspace sidehead'> Upgrading
+</p><ul><li><a class='wikilink' href='../Installing/Upgrading'>From version 1.1 or higher</a>
+</li><li><a class='wikilink' href='../Installing/UpgradingOlder'>From older versions</a>
+</li></ul><p class='vspace sidehead'> Working with themes
+</p><ul><li><a class='wikilink' href='../Themes/GettingStarted'>Getting started</a>
+</li><li><a class='wikilink' href='../Themes/CreateANewTheme'>Create a new theme</a>
+</li><li><a class='wikilink' href='../Themes/Helpers'>Helper methods</a>
+</li><li><a class='wikilink' href='../Themes/Preferences'>Using preferences</a>
+</li></ul><p class='vspace sidehead'> How to
+</p><ul><li><a class='wikilink' href='../Howto/ImportData'>Import Data</a>
+</li><li><a class='wikilink' href='../Howto/UsingCustomFields'>Using Custom Fields</a>
+</li><li><a class='wikilink' href='../Howto/PostToFlickr'>Post to Flickr</a>
+</li><li><a class='wikilink' href='../Howto/IntegrateDelicious'>Integrate del.icio.us</a>
+</li><li><a class='wikilink' href='../Howto/PostViaApplication'>Post via applications</a>
+</li><li><a class='wikilink' href='../Howto/SendFeedback'>Send feedback/bugs</a>
+</li></ul><p class='vspace sidehead'> Troubleshooting
+</p><ul><li><a class='wikilink' href='../Trouble/CommonProblems'>Common problems</a>
+</li></ul><p class='vspace sidehead'> Development &amp; resources
+</p><ul><li><a class='wikilink' href='../Development/SVN'>SVN</a>
+</li><li><a class='wikilink' href='../Development/Trac'>Trac</a>
+</li><li><a class='wikilink' href='../Development/ChangeLog'>ChangeLog</a>
+</li><li><a class='wikilink' href='../External/Links'>Links</a>
+</li></ul>
+</td>
+<!--/PageLeftFmt-->
+      <td id='wikibody' valign='top'>
+<!--PageActionFmt-->
+        <!-- <div id='wikicmds'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://wiki.simplelog.net/Using/Blacklist'>View</a>
+</li><li class='edit'><a accesskey='e'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Using/Blacklist?action=edit'>Edit</a>
+</li><li class='diff'><a accesskey='h'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Using/Blacklist?action=diff'>History</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Using/Blacklist?action=print'>Print</a>
+</li></ul>
+</div> -->
+<!--PageTitleFmt-->
+        <div id='wikititle'>
+          <div class='pagegroup'><a href='http://wiki.simplelog.net/Using'>Using</a> /</div>
+          <h1 class='pagetitle'>Blacklist</h1></div>
+<!--PageText-->
+<div id='wikitext'>
+<p>The blacklist is an easy way to catch spam before it gets posted to your site. In addition to <a class='wikilink' href='ApprovingComments'>comment approval</a>, the blacklist should help you keep a low amount of spam appearing on your site.
+</p>
+<p class='vspace'>By default, <span class='wikiword'>SimpleLog</span> comes loaded with over 2,000 blacklist items for commonly known spam. You can add new items to the blacklist by simply adding a new line to the list and saving. You can remove any item the same way, by removing a line and saving.
+</p>
+<p class='vspace'>In addition, you can quickly add various parts of any comment to the blacklist by editing the comment and clicking any one of the "add to blacklist" links that appear for various fields. For example: If a comment gets through that is spam, you can go into the edit view of that comment and click the "add to blacklist" link on, say, the URL that was posted. In the future, any comment with that URL will not get through.
+</p>
+<p class='vspace'>The blacklist also accepts regex values, making it even more powerful. Instead of blocking literal <span class='wikiword'>URLs</span>, you can use regex to make blocking rules more powerful.
+</p>
+<p class='vspace'><span class='wikiword'>SimpleLog</span> is serious about comment spam protection--a central repository of blacklist rules (called the "<span class='wikiword'>SimpleLog</span> clearinghouse") is easily importable at any time. Click the "Import blacklist rules" link in the upper left of the blacklist section to connect to the <span class='wikiword'>SimpleLog</span> server and download the rules. None of your information is sent to the server.
+</p>
+</div>
+
+      </td>
+    </tr></table>
+<!--PageFooterFmt-->
+  <!-- <div id='wikifoot'>
+    <div class='footnav'>
+      <a rel="nofollow" href='http://wiki.simplelog.net/Using/Blacklist?action=edit'>Edit</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Using/Blacklist?action=diff'>History</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Using/Blacklist?action=print' target='_blank'>Print</a> -
+      <a href='http://wiki.simplelog.net/Using/RecentChanges'>Recent Changes</a> -
+      <a href='http://wiki.simplelog.net/Site/Search'>Search</a></div>
+    <div class='lastmod'>Page last modified on February 01, 2007, at 04:13 PM EST</div></div> -->
+<!--HTMLFooter-->
+</body>
+</html>

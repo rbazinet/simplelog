@@ -1,0 +1,131 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>SimpleLog wiki | Howto / PostToFlickr </title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel='stylesheet' href='../pmwiki/pub/skins/pmwiki/pmwiki.css' type='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<!--PageHeaderFmt-->
+  <div id='wikilogo'><a href='../index.html'><img src='../pmwiki/pub/skins/pmwiki/pmwiki-32.gif'
+    alt='SimpleLog wiki' border='0' /></a></div>
+  <div id='wikihead'>
+  <!-- <form action='http://wiki.simplelog.net'>
+    <span class='headnav'><a href='http://wiki.simplelog.net/Howto/RecentChanges'
+      accesskey='c'>Recent Changes</a> -</span>
+    <input type='hidden' name='n' value='Howto.PostToFlickr' />
+    <input type='hidden' name='action' value='search' />
+    <a href='http://wiki.simplelog.net/Site/Search'>Search</a>:
+    <input type='text' name='q' value='' class='inputbox searchbox' />
+    <input type='submit' class='inputbutton searchbutton'
+      value='Go' /></form> --></div>
+<!--/PageHeaderFmt-->
+  <table id='wikimid' width='100%' cellspacing='0' cellpadding='0'><tr>
+<!--PageLeftFmt-->
+      <td id='wikileft' valign='top'>
+        <p class='sidehead'> <span class='wikiword'>SimpleLog</span> wiki
+</p><ul><li><a class='wikilink' href='../Main/HomePage'>Home</a>
+</li><li><a class='wikilink' href='../Main/About'>About SimpleLog</a>
+</li><li><a class='wikilink' href='../Main/Acknowledgments'>Acknowledgments</a>
+</li><li><a class='wikilink' href='../Main/License'>License</a>
+</li><li><a class='wikilink' href='../External/SitesUsingSimpleLog'>Sites using SimpleLog</a>
+</li><li><a class='urllink' href='http://simplelog.net' rel='nofollow'>Back to simplelog.net</a>
+</li></ul><p class='vspace sidehead'> Installing <span class='wikiword'>SimpleLog</span>
+</p><ul><li><a class='wikilink' href='../Installing/BeforeYouInstall'>Before you install</a>
+</li><li><a class='wikilink' href='../Installing/Installation'>Installation</a>
+</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='../Installing/UsingSimpleLogWithMTgs'>MT(gs) users</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='../Installing/UsingSimpleLogWithDreamHost'>DreamHost users</a>
+</p><ul><li><a class='wikilink' href='../Installing/NextSteps'>Next steps</a>
+</li></ul><p class='vspace sidehead'> Upgrading
+</p><ul><li><a class='wikilink' href='../Installing/Upgrading'>From version 1.1 or higher</a>
+</li><li><a class='wikilink' href='../Installing/UpgradingOlder'>From older versions</a>
+</li></ul><p class='vspace sidehead'> Working with themes
+</p><ul><li><a class='wikilink' href='../Themes/GettingStarted'>Getting started</a>
+</li><li><a class='wikilink' href='../Themes/CreateANewTheme'>Create a new theme</a>
+</li><li><a class='wikilink' href='../Themes/Helpers'>Helper methods</a>
+</li><li><a class='wikilink' href='../Themes/Preferences'>Using preferences</a>
+</li></ul><p class='vspace sidehead'> How to
+</p><ul><li><a class='wikilink' href='ImportData'>Import Data</a>
+</li><li><a class='wikilink' href='UsingCustomFields'>Using Custom Fields</a>
+</li><li><a class='selflink' href='PostToFlickr'>Post to Flickr</a>
+</li><li><a class='wikilink' href='IntegrateDelicious'>Integrate del.icio.us</a>
+</li><li><a class='wikilink' href='PostViaApplication'>Post via applications</a>
+</li><li><a class='wikilink' href='SendFeedback'>Send feedback/bugs</a>
+</li></ul><p class='vspace sidehead'> Troubleshooting
+</p><ul><li><a class='wikilink' href='../Trouble/CommonProblems'>Common problems</a>
+</li></ul><p class='vspace sidehead'> Development &amp; resources
+</p><ul><li><a class='wikilink' href='../Development/SVN'>SVN</a>
+</li><li><a class='wikilink' href='../Development/Trac'>Trac</a>
+</li><li><a class='wikilink' href='../Development/ChangeLog'>ChangeLog</a>
+</li><li><a class='wikilink' href='../External/Links'>Links</a>
+</li></ul>
+</td>
+<!--/PageLeftFmt-->
+      <td id='wikibody' valign='top'>
+<!--PageActionFmt-->
+        <!-- <div id='wikicmds'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://wiki.simplelog.net/Howto/PostToFlickr'>View</a>
+</li><li class='edit'><a accesskey='e'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Howto/PostToFlickr?action=edit'>Edit</a>
+</li><li class='diff'><a accesskey='h'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Howto/PostToFlickr?action=diff'>History</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Howto/PostToFlickr?action=print'>Print</a>
+</li></ul>
+</div> -->
+<!--PageTitleFmt-->
+        <div id='wikititle'>
+          <div class='pagegroup'><a href='http://wiki.simplelog.net/Howto'>Howto</a> /</div>
+          <h1 class='pagetitle'>PostToFlickr</h1></div>
+<!--PageText-->
+<div id='wikitext'>
+<h3>Configuring Flickr</h3>
+<ol><li>Visit <a class='urllink' href='http://flickr.com/account' rel='nofollow'>http://flickr.com/account</a> and click the "Your blogs" link in the Blogging section
+<div class='vspace'></div></li><li>Click "Set up your blog" and choose "<span class='wikiword'>MetaWeblogAPI</span> Enabled Blog" when asked which kind of weblog you have and click "Next"
+<div class='vspace'></div></li><li>Enter your site's URL plus /xmlrpc/api for your "API Endpoint" (example: http://myweblog.com/xmlrpc/api)
+<div class='vspace'></div></li><li>Enter your username and password (the same info you use to log in to the <span class='wikiword'>SimpleLog</span> admin section), and click "Next"
+<div class='vspace'></div></li><li>On the next page, confirm details and then click "All Done"
+</li></ol><p class='vspace'>You can now choose a custom posting template and start posting from Flickr by clicking the "Blog This" button on your photos.
+</p>
+</div>
+
+      </td>
+    </tr></table>
+<!--PageFooterFmt-->
+  <!-- <div id='wikifoot'>
+    <div class='footnav'>
+      <a rel="nofollow" href='http://wiki.simplelog.net/Howto/PostToFlickr?action=edit'>Edit</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Howto/PostToFlickr?action=diff'>History</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Howto/PostToFlickr?action=print' target='_blank'>Print</a> -
+      <a href='http://wiki.simplelog.net/Howto/RecentChanges'>Recent Changes</a> -
+      <a href='http://wiki.simplelog.net/Site/Search'>Search</a></div>
+    <div class='lastmod'>Page last modified on January 26, 2007, at 05:47 PM EST</div></div> -->
+<!--HTMLFooter-->
+</body>
+</html>

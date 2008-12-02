@@ -1,0 +1,301 @@
+/* @override http://wiki.simplelog.net/pmwiki/pub/skins/pmwiki/pmwiki.css */
+
+body {
+  margin: 0px;
+  /*background-color: #f7f7f7;*/  
+  font: normal 12px/18px Arial, Helvetica, sans-serif;
+  color:#333;
+	background-color:#273d4a;
+}
+hr {
+	width: 100%;
+	height: 1px;
+	padding: 0;
+	margin: 20px 0;
+	border: 1px solid #ddd;
+	border-width: 1px 0 0 0;
+	text-align: center;
+}
+
+/* @group head */
+#wikilogo {
+	margin-top:4px;
+	padding:6px;
+	/*border-bottom:1px #cccccc solid;*/
+}
+#wikilogo img {
+	visibility: hidden;
+}
+#wikihead { 
+  position: absolute;
+  right: 10px;
+  top: 18px;
+  color:#edf4ff;
+}
+#wikihead a:hover {
+	color: #fff;
+}
+#wikihead input {
+}
+.searchbutton {
+	vertical-align: middle;
+}
+/* @end */
+
+/* @group commands */
+#wikicmds { 
+  float: right;
+  white-space: nowrap; 
+  font-size: 12px; 
+  margin-top: 10px;
+}
+#wikicmds ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+#wikicmds li {
+	display: inline;
+	margin: 0px 5px;
+}
+#wikicmds li a {
+	text-decoration: none;
+	color: #009cff;
+	border: none;
+}
+#wikicmds li a.createlink {
+	display: none;
+}
+#wikicmds li a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+/* @end */
+
+/* @group sidebar */
+#wikileft { 
+  width: 175px; 
+  padding: 6px;
+  /*border-right: 1px #cccccc solid;*/ 
+  line-height: 1.33em;
+  font-size: 13px;
+}
+#wikileft .vspace {
+	margin-top: 1.125em;
+}
+#wikileft a {
+	text-decoration:underline;
+}
+#wikileft a:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+#wikileft ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+#wikileft li {
+	margin: 0px;
+	padding-left: 16px;
+}
+.sidehead {
+  margin: 0px;
+  padding: 4px 2px 2px 0px;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  color:#edf4ff;
+}
+.sidehead a {
+	color: #009cff;
+	font-weight: bold;
+	font-style: normal;
+}
+/* @end */
+
+/* @group fixed_width */
+textarea, pre, code {
+	font-size: 12px;
+	color: #616161;
+}
+pre, code {
+	font-family: 'Bitstream Vera Sans Mono', Monaco, 'Courier New', Courier;
+}
+/* @end */
+
+/* @group headers */
+h1, h2, h3, h6 {
+	font-weight: normal;
+}
+h4, h5 {
+	font-weight: bold;
+}
+h3 {
+	font-size: 18px;
+	color: #000;
+}
+/* @end */
+
+/* @group links */
+a {
+	color:#009cff;
+}
+a:hover, a:active {
+	color: #000;
+}
+/* @end */ 
+
+/* @group content area */
+#wikibody { 
+  padding: 0px 14px 10px 14px;
+  background-color: #fff; 
+  font-size: 14px;
+}
+#wikitext {
+	margin: 10px 20px 20px 20px;
+}
+.pagegroup {
+	margin-top: 22px;
+	margin-bottom: 2px;
+	font-size: 12px;
+}
+.pagetitle {
+	line-height: 28px;
+	margin: 0 0 30px 0;
+	padding-bottom: 6px;
+	font-size: 28px;
+	font-weight: normal;
+	border-bottom: 1px solid #eee;
+}
+.wikiaction {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+.file_struct {
+	font-size: 11px;
+}
+.file_struct code {
+	font-family: Arial, Verdana, Sans-serif;
+	color:#adadad;
+	padding-left: 10px;
+}
+/* @end */
+
+/* @group edit form */
+#wikiedit form {
+	margin: 0px;
+	width: 100%;
+}
+#wikiedit form textarea#text {
+	margin-bottom: 20px;
+}
+#control_buttons {
+	background-color: #f7f7f7;
+	padding: 10px;
+	border: 1px solid #eee;
+	margin: 10px 0;
+}
+#optional_controls {
+	font-size: 11px;
+	padding-left: 4px;
+	margin-top: 14px;
+}
+.smaller_input {
+	width: 40%;
+}
+#those_edit_buttons {
+	margin-top: 14px;
+	margin-bottom: 4px;
+}
+textarea {
+	width: 100%;
+	color: #000;
+}
+.wikimessage {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-style: italic;
+}
+#control_buttons p input {
+	font-size: 12px;
+	padding: 2px;
+}
+.gm_qr {
+	font-size: 11px;
+	background-color: #fcfcfc;
+	border:1px solid #f0f0f0;
+	padding: 10px;
+	margin-top: 30px;
+}
+.gm_qr h3 {
+	font-size: 14px;
+	margin: 0;
+	padding-bottom: 12px;
+}
+/* @end */
+
+/* @group reusable boxes */
+.donate_box, .small_box, .box, .warning_box {
+	background-color: #e7fde5;
+	border: 1px solid #7ed678;
+	padding: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.chubby {
+	margin-bottom: 30px;
+}
+.warning_box {
+	border-color: #dfa43e;
+	background-color: #fff7eb;
+}
+.small_box, .box {
+	background-color: #f7f7f7;
+	border-color: #ccc;
+}
+.small_box {
+	margin-left: 80px;
+	margin-right: 80px;
+}
+.left {
+	text-align: left;
+}
+.helpers_list p strong code {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0 0 -10px 0;
+	display: block;
+	padding: 0;
+}
+.prefs_list p strong code {
+	font-size: 14px;
+	font-weight: normal;
+	display: block;
+	margin: 0 0 4px 0;
+	padding: 0;
+}
+/* @end */
+
+/* @group footer */
+#wikifoot { 
+  padding: 10px 0 4px 198px;
+  /*border-top: 1px #cccccc solid;*/
+  font-size: 11px;
+  color:#49728a;
+}
+#wikifoot a {
+	color:#009cff;
+}
+#wikifoot a:hover {
+	color: #fff;
+}
+/* @end */
+
+/* These affect the printed appearance of the web view (not the separate
+** print view) of pages.  The sidebar and action links aren't printed. */
+@media print {
+  body { width: auto; margin: 0px; padding: 0.5em; }
+  #wikihead, #wikileft, #wikicmds, .footnav { display: none; }
+  #wikifoot { padding: 2px; }
+}

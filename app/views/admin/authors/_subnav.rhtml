@@ -1,0 +1,49 @@
+<% if np %>
+    
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            You're creating a new author.
+        </div>
+        <div class="sn_right">
+            <%= link_to '&larr; Return to the authors list', Site.full_url + '/admin/authors' %>
+        </div><br/>
+    </div>
+    
+<% elsif ep %>
+
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <% if @posts.length < 1 %>
+               There are no posts written by this author.
+            <% else %>
+                <%= link_to '<b>View a list</b>', Site.full_url + '/admin/authors/show/' + @author.id.to_s %> of posts written by this author (currently: <%= @posts.length.to_s %>)
+            <% end %>
+        </div>
+        <div class="sn_right">
+            <%= link_to '&larr; Return to the authors list', Site.full_url + '/admin/authors' %>
+        </div><br/>
+    </div>
+    
+<% elsif sh %>
+
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <%= link_to '<b>Go back to this author</b>', Site.full_url + '/admin/authors/edit/' + @author.id.to_s %> to continue editing.
+        </div>
+        <div class="sn_right">
+            <%= link_to '&larr; Return to the authors list', Site.full_url + '/admin/authors' %>
+        </div><br/>
+    </div>
+
+<% else %>
+    
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <%= link_to '<b>Create a new author</b>', Site.full_url + '/admin/authors/new' %>
+        </div>
+        <div class="sn_right">
+            Remember: Active Authors have the right to log in and modify things
+        </div><br/>
+    </div>
+    
+<% end %>

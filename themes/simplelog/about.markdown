@@ -1,0 +1,1 @@
+The default SimpleLog theme, aptly named "SimpleLog."

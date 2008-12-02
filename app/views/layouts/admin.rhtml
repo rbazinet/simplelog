@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title><%= 'SimpleLog: ' + $admin_page_title %></title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<%= stylesheet_link_tag Site.full_url + '/stylesheets/admin.css' %>
+	<%= javascript_include_tag Site.full_url + '/javascripts/admin.js' %>
+	<%= javascript_include_tag Site.full_url + '/javascripts/prototype.js' %>
+	<%= javascript_include_tag Site.full_url + '/javascripts/effects.js' %>
+	<%= javascript_include_tag Site.full_url + '/javascripts/dragdrop.js' %>
+	<%= javascript_include_tag Site.full_url + '/javascripts/controls.js' %>
+</head>
+<body<% if @onload %> onload="doFieldSelect(<%= @onload %>);"<% end %>>
+
+<div id="ping_panel">
+    <div id="pp_top_arrow"><img src="/images/admin/trans_black_arrow.png" border="0"/></div>
+    <div class="pp_tl">&nbsp;</div>
+    <div class="pp_tbar">&nbsp;</div>
+    <div class="pp_tr">&nbsp;</div>
+    <div id="pp_content">
+        <%= render :partial => 'admin/misc/ping' %>
+    </div>
+    <div class="pp_bl">&nbsp;</div>
+    <div class="pp_bbar">&nbsp;</div>
+    <div class="pp_br">&nbsp;</div>
+</div>
+
+<div id="help_panel">
+    <div id="hp_top_arrow"><img src="/images/admin/trans_black_arrow.png" border="0"/></div>
+    <div class="pp_tl">&nbsp;</div>
+    <div class="pp_tbar">&nbsp;</div>
+    <div class="pp_tr">&nbsp;</div>
+    <div id="hp_content">
+        <%= render :partial => 'admin/misc/help_options' %>
+    </div>
+    <div class="pp_bl">&nbsp;</div>
+    <div class="pp_bbar">&nbsp;</div>
+    <div class="pp_br">&nbsp;</div>
+</div>
+    
+<% if @update_checker -%>
+<div id="message">
+    <%= @update_checker %>
+</div>
+<% end -%>
+
+<%
+comments_sys_on = get_pref('COMMENTING_ON')
+cb = (comments_sys_on == 'yes')
+%>
+<div id="admin_nav">
+	<ul class="navlist">
+		<li><a accesskey="1" href="<%= Site.full_url %>/admin/posts" title="Posts"<%= ' class="current"' if params[:action][0..3] == 'post' %>>Posts</a>&nbsp;<a accesskey="n" href="<%= Site.full_url %>/admin/posts/new" title="Create a new post"><img src="<%= Site.full_url %>/images/admin/new_button.png" id="new_post_button" alt="Create a new post" border="0"/></a></li>
+		<li><a accesskey="2" href="<%= Site.full_url %>/admin/pages" title="Pages"<%= ' class="current"' if params[:action][0..3] == 'page' %>>Pages</a></li>
+		<% if cb %><li><a accesskey="3" href="<%= Site.full_url %>/admin/comments" title="Comments"<%= ' class="current"' if (params[:action][0..6] == 'comment' or params[:action][0..8] == 'blacklist') %>>Comments</a></li><% end %>
+		<li><a accesskey="<%= (cb ? '4' : '3') %>" href="<%= Site.full_url %>/admin/tags" title="Tags"<%= ' class="current"' if params[:action][0..2] == 'tag' %>>Tags</a></li>
+		<li><a accesskey="<%= (cb ? '5' : '4') %>" href="<%= Site.full_url %>/admin/authors" title="Authors"<%= ' class="current"' if params[:action][0..5] == 'author' %>>Authors</a></li>
+		<li class="end"><a accesskey="<%= (cb ? '6' : '5') %>" id="ping_obj" href="<%= Site.full_url %>/admin/ping" title="Ping"<%= ' class="current"' if params[:action][0..3] == 'ping' %> onclick="showPingPanel(); return false;">Ping</a></li>
+	</ul>
+	<ul class="navlist right">
+	    <li><a accesskey="p" href="<%= Site.full_url %>/admin/prefs" title="Preferences"<%= ' class="current"' if params[:action][0..4] == 'prefs' %>>Preferences</a></li>
+		<li><a accesskey="u" href="<%= Site.full_url %>/admin/updates" title="Updates"<%= ' class="current"' if params[:action] == 'updates' %>>Updates</a></li>
+		<li><a accesskey="h" id="help_obj" href="<%= Site.full_url %>/admin/help" title="Help"<%= ' class="current"' if params[:action] == 'help' %> onclick="showHelpPanel(); return false;">Help</a></li>
+		<li><a accesskey="l" href="<%= Site.full_url %>/logout" title="Logout">Logout</a></li>
+		<li class="end"><a accesskey="v" href="/" target="_blank" title="View Site">View Site</a></li>
+	</ul><br/>
+</div>
+	
+<div id="box">
+	<%= yield %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<%= render :partial => 'admin/pages/subnav', :locals => {:np => false, :ep => false} %>
+
+<div id="header">
+	<h1>Your pages</h1>
+	<h2>Gray denotes inactive pages.</h2><br/>
+	<% if flash[:notice] %><div class="green flash"><%= flash[:notice] %></div><% end %>
+</div>
+
+<table class="list" cellspacing="0" cellpadding="0">
+	
+	<tr>
+		<th class="first_col"><%= link_to 'Created', @sorter.to_link('created_at') %><%= @sorter.di('created_at') %></th>
+		<th><%= link_to 'Title', @sorter.to_link('title') %><%= @sorter.di('title') %></th>
+		<th>Excerpt</th>
+		<th><%= link_to 'Link', @sorter.to_link('permalink') %><%= @sorter.di('permalink') %></th>
+		<th class="del_col">X</th>
+	</tr>
+	
+	<% c = 1 -%>
+	<% f = 1 -%>
+	<% for page in @pages -%>
+		<tr class="<% if !page.is_active %>inactive <% end %><%= (c%2 == 0 ? 'alt_row ' : '') %><%= (f == 1 ? 'first_row' : '') %>">
+			<td class="first_col"><%= page.created_at.strftime('%d %b, %Y') %></td>
+			<td><%= link_to (page.title == '' ? '[Untitled]' : page.title), Site.full_url + '/admin/pages/edit/' + page.id.to_s %></td>
+			<td><%= truncate(Post.strip_html(page.body), 50) %></td>
+			<td><%= page.permalink %></td>
+			<td class="del_col"><%= link_to 'X', Site.full_url + '/admin/pages/destroy/' + page.id.to_s, :confirm => "You are about to delete this page. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
+		</tr>
+		<% c = (c == 1 ? c+1 : c = 1) -%>
+		<% f = f+1 -%>
+	<% end -%>
+	<% unless @pages.length > 0 -%>
+	<tr class="first_row"><td class="first_col" colspan="5"><span class="gray">There are no pages at this time.</span></td></tr>
+	<% end -%>
+	<% if @page_pages %>
+	<tr class="header">
+		<th colspan="5">
+			<div class="pagination">
+				<div class="prev">
+					<%= link_to '&laquo; Previous page', { :sort => params[:sort], :page => @page_pages.current.previous } if @page_pages.current.previous %>
+				&nbsp;</div>
+				<div class="next">&nbsp;
+					<%= link_to 'Next page &raquo;', { :sort => params[:sort], :page => @page_pages.current.next } if @page_pages.current.next %>
+				</div>
+			</div>
+		</th>
+	</tr>
+	<% end %>
+</table>
+<br/>

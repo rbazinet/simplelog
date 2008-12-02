@@ -1,0 +1,23 @@
+<% if hp %>
+    
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <%= link_to '<b>Visit the SimpleLog wiki</b>', 'http://wiki.simplelog.net', :title => 'Visit the SimpleLog wiki', :target => '_blank' %> for more information.
+        </div>
+        <div class="sn_right">
+            Answers to common questions.
+        </div><br/>
+    </div>
+    
+<% elsif ud %>
+
+    <div id="admin_sub_nav">
+        <div class="sn_left">
+            <%= link_to '<b>Turn ' + (@updates_pref == 'yes' ? 'off' : 'on') + '</b>', Site.full_url + '/admin/updates/auto/toggle' %> automatic update checking.
+        </div>
+        <div class="sn_right">
+            You're running version <b><%= SL_CONFIG[:VERSION] %></b>
+        </div><br/>
+    </div>
+
+<% end %>

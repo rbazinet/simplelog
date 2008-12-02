@@ -1,0 +1,144 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>SimpleLog wiki | Installing / Installation </title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel='stylesheet' href='../pmwiki/pub/skins/pmwiki/pmwiki.css' type='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<!--PageHeaderFmt-->
+  <div id='wikilogo'><a href='../index.html'><img src='../pmwiki/pub/skins/pmwiki/pmwiki-32.gif'
+    alt='SimpleLog wiki' border='0' /></a></div>
+  <div id='wikihead'>
+  <!-- <form action='http://wiki.simplelog.net'>
+    <span class='headnav'><a href='http://wiki.simplelog.net/Installing/RecentChanges'
+      accesskey='c'>Recent Changes</a> -</span>
+    <input type='hidden' name='n' value='Installing.Installation' />
+    <input type='hidden' name='action' value='search' />
+    <a href='http://wiki.simplelog.net/Site/Search'>Search</a>:
+    <input type='text' name='q' value='' class='inputbox searchbox' />
+    <input type='submit' class='inputbutton searchbutton'
+      value='Go' /></form> --></div>
+<!--/PageHeaderFmt-->
+  <table id='wikimid' width='100%' cellspacing='0' cellpadding='0'><tr>
+<!--PageLeftFmt-->
+      <td id='wikileft' valign='top'>
+        <p class='sidehead'> <span class='wikiword'>SimpleLog</span> wiki
+</p><ul><li><a class='wikilink' href='../Main/HomePage'>Home</a>
+</li><li><a class='wikilink' href='../Main/About'>About SimpleLog</a>
+</li><li><a class='wikilink' href='../Main/Acknowledgments'>Acknowledgments</a>
+</li><li><a class='wikilink' href='../Main/License'>License</a>
+</li><li><a class='wikilink' href='../External/SitesUsingSimpleLog'>Sites using SimpleLog</a>
+</li><li><a class='urllink' href='http://simplelog.net' rel='nofollow'>Back to simplelog.net</a>
+</li></ul><p class='vspace sidehead'> Installing <span class='wikiword'>SimpleLog</span>
+</p><ul><li><a class='wikilink' href='BeforeYouInstall'>Before you install</a>
+</li><li><a class='selflink' href='Installation'>Installation</a>
+</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='UsingSimpleLogWithMTgs'>MT(gs) users</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='wikilink' href='UsingSimpleLogWithDreamHost'>DreamHost users</a>
+</p><ul><li><a class='wikilink' href='NextSteps'>Next steps</a>
+</li></ul><p class='vspace sidehead'> Upgrading
+</p><ul><li><a class='wikilink' href='Upgrading'>From version 1.1 or higher</a>
+</li><li><a class='wikilink' href='UpgradingOlder'>From older versions</a>
+</li></ul><p class='vspace sidehead'> Working with themes
+</p><ul><li><a class='wikilink' href='../Themes/GettingStarted'>Getting started</a>
+</li><li><a class='wikilink' href='../Themes/CreateANewTheme'>Create a new theme</a>
+</li><li><a class='wikilink' href='../Themes/Helpers'>Helper methods</a>
+</li><li><a class='wikilink' href='../Themes/Preferences'>Using preferences</a>
+</li></ul><p class='vspace sidehead'> How to
+</p><ul><li><a class='wikilink' href='../Howto/ImportData'>Import Data</a>
+</li><li><a class='wikilink' href='../Howto/UsingCustomFields'>Using Custom Fields</a>
+</li><li><a class='wikilink' href='../Howto/PostToFlickr'>Post to Flickr</a>
+</li><li><a class='wikilink' href='../Howto/IntegrateDelicious'>Integrate del.icio.us</a>
+</li><li><a class='wikilink' href='../Howto/PostViaApplication'>Post via applications</a>
+</li><li><a class='wikilink' href='../Howto/SendFeedback'>Send feedback/bugs</a>
+</li></ul><p class='vspace sidehead'> Troubleshooting
+</p><ul><li><a class='wikilink' href='../Trouble/CommonProblems'>Common problems</a>
+</li></ul><p class='vspace sidehead'> Development &amp; resources
+</p><ul><li><a class='wikilink' href='../Development/SVN'>SVN</a>
+</li><li><a class='wikilink' href='../Development/Trac'>Trac</a>
+</li><li><a class='wikilink' href='../Development/ChangeLog'>ChangeLog</a>
+</li><li><a class='wikilink' href='../External/Links'>Links</a>
+</li></ul>
+</td>
+<!--/PageLeftFmt-->
+      <td id='wikibody' valign='top'>
+<!--PageActionFmt-->
+        <!-- <div id='wikicmds'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://wiki.simplelog.net/Installing/Installation'>View</a>
+</li><li class='edit'><a accesskey='e'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Installing/Installation?action=edit'>Edit</a>
+</li><li class='diff'><a accesskey='h'  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Installing/Installation?action=diff'>History</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://wiki.simplelog.net/Installing/Installation?action=print'>Print</a>
+</li></ul>
+</div> -->
+<!--PageTitleFmt-->
+        <div id='wikititle'>
+          <div class='pagegroup'><a href='Installing'>Installing</a> /</div>
+          <h1 class='pagetitle'>Installation</h1></div>
+<!--PageText-->
+<div id='wikitext'>
+<div class='warning_box' >
+<p>If you're <strong>upgrading</strong>, you should not use these instructions. Use <a class='wikilink' href='Upgrading'>Upgrading</a> instead.
+</p></div>
+<div class='vspace'></div><div class='box chubby' >
+<p><strong>Using <span class='wikiword'>MediaTemple</span> Grid Server (gs) or Dreamhost?</strong> See these: <a class='wikilink' href='UsingSimpleLogWithMTgs'>SimpleLog with MT(gs)</a>, <a class='wikilink' href='UsingSimpleLogWithDreamHost'>SimpleLog with DreamHost</a>
+</p></div>
+<div class='vspace'></div><h3>1. Copy the "simplelog_[version]" folder to your server or hard drive, chmod files:</h3>
+<div class='indent'><pre class='escaped'>chmod 755 log/
+chmod 755 theme_backup/
+chmod 755 public/dispatch.fcgi</pre>
+</div><div class='vspace'></div><h3>2. Set up databases and configure your settings in config/database.yml</h3>
+<div class='indent'>2a. A note on databases: You should use the same database for development and production in <span class='wikiword'>SimpleLog</span>, unless you plan to make significant changes to the app and you want to truly run in development mode. You should create a test database if you wish to run the tests to make sure <span class='wikiword'>SimpleLog</span> is working correctly before running it (this is recommended but isn't required).
+<div class='vspace'></div></div><div class='indent'>2b. If you're going to use <span class='wikiword'>PostgreSQL</span>, you should use the database_postgres.yml file and rename it database.yml instead. It has some default info for connecting to <span class='wikiword'>PostgreSQL</span>.
+</div><div class='vspace'></div><h3>3. Configure two settings in config/server.rb</h3>
+<h3>4. Run the <span class='wikiword'>SimpleLog</span> migration task to import the DB schema:</h3>
+<div class='indent'><code>rake simplelog:install</code>
+<div class='vspace'></div></div><div class='indent'>Or, if you want to be safe and run tests, make sure your test DB exists and then run the following rake task instead:
+<div class='vspace'></div></div><div class='indent'><code>rake simplelog:install:tested</code>
+</div><div class='vspace'></div><h3>5. Start your server.</h3>
+<p><br />
+</p><h3>All done! Proceed to <a class='wikilink' href='NextSteps'>Next steps</a> &rarr;</h3>
+</div>
+
+      </td>
+    </tr></table>
+<!--PageFooterFmt-->
+  <!-- <div id='wikifoot'>
+    <div class='footnav'>
+      <a rel="nofollow" href='http://wiki.simplelog.net/Installing/Installation?action=edit'>Edit</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Installing/Installation?action=diff'>History</a> -
+      <a rel="nofollow" href='http://wiki.simplelog.net/Installing/Installation?action=print' target='_blank'>Print</a> -
+      <a href='http://wiki.simplelog.net/Installing/RecentChanges'>Recent Changes</a> -
+      <a href='http://wiki.simplelog.net/Site/Search'>Search</a></div>
+    <div class='lastmod'>Page last modified on January 26, 2007, at 05:32 PM EST</div></div> -->
+<!--HTMLFooter-->
+</body>
+</html>

@@ -1,0 +1,13 @@
+<%= error_messages_for 'tag' %>
+<%= hidden_field_tag('old_name', @old_name) %>
+
+<table class="form" cellpadding="0" cellspacing="0">
+<!--[form:tag]-->
+<tr class="breaker btop"><td colspan="2">Tag Details</td></tr>
+
+<tr><td class="labels"><label for="tag_name"><b>Name</b></label></td><td class="fields">
+<%= text_field 'tag', 'name' %></td></tr>
+
+<tr><td class="labels"><label for="">Help</label></td><td class="fields"><span class="small gray"><b>How to merge tags:</b> Simply rename one of the tags to the name of the other. All posts tagged with either tag will be updated to be tagged with the single, merged tag. <a href="<%= Site.full_url %>/admin/help#hq8" title="Help: How do I merge two tags?" target="_blank">See help</a> for details.</span></td></tr>
+<!--[eoform:tag]-->
+</table>

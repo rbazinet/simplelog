@@ -1,0 +1,9 @@
+# $Id: tags_posts.yml 36 2006-05-01 20:46:38Z garrett $
+
+association_1:
+  tag_id: 1
+  post_id: 1
+
+association_2:
+  tag_id: 2
+  post_id: 1

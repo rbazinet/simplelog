@@ -1,0 +1,151 @@
+<%  temp_repair = error_messages_for('comment') || '' %>
+<%= temp_repair.gsub('Body raw', 'Body') %>
+<% text_filter = get_pref('TEXT_FILTER') %>
+<% comment_post = @comment.post %>
+
+<table class="form" cellpadding="0" cellspacing="0">
+<!--[form:post]-->
+<tr class="breaker btop"><td colspan="2">Approval</td></tr>
+
+<tr><td class="labels"><label for="post_is_active">Is approved?</label></td><td class="fields">
+<%= check_box 'comment', 'is_approved', :checked => (@comment.is_approved ? 'checked' : '') %><label for="comment_is_approved" class="left">&nbsp;<span class="small gray">If the box is checked, the comment appears on your site</span></label></td></tr>
+
+<tr class="breaker"><td colspan="2">Commenter</td></tr>
+
+<%
+bl_values = Array.new
+for i in @items
+    bl_values << i.item.gsub('http://', '')
+end
+name_listed, email_listed, url_listed, ip_listed = false
+name_listed = true if bl_values.index(@comment.name)
+email_listed = true if bl_values.index(@comment.email)
+url_listed = true if bl_values.index(@comment.url.gsub('http://', ''))
+ip_listed = true if bl_values.index(@comment.ip)
+-%>
+
+<tr><td class="labels"><label for="comment_name">Name</label></td><td class="fields">
+<%= text_field 'comment', 'name', :size => '58', :class => 'normal_ic_width' %><% if @comment.name and @comment.name != '' %>&nbsp;&nbsp;<span class="small gray"><!--
+--><span id="bl_name_add"<%= ' style="display: none;"' if name_listed %>><!--
+--><%= link_to_remote('Add to blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/add/' + CGI::escape(@comment.name),
+    :loading => "Element.hide('bl_name_add'); Element.show('bl_name_i');",
+    :complete => "Element.hide('bl_name_i'); Element.show('bl_name_remove');",
+    :confirm => "Are you sure you wish to blacklist this name?\n\nYou can undo this at any time."
+}) -%></span><!--
+--><span id="bl_name_remove"<%= ' style="display: none;"' if !name_listed %>><!--
+--><%= link_to_remote('Remove from blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/destroy/' + CGI::escape(@comment.name),
+    :loading => "Element.hide('bl_name_remove'); Element.show('bl_name_i');",
+    :complete => "Element.hide('bl_name_i'); Element.show('bl_name_add');",
+    :confirm => "Are you sure you wish to remove this item from the blacklist?\n\nYou can always add it back later."
+}) -%></span><!--
+--><span id="bl_name_i" style="display: none;"><img src="<%= Site.full_url %>/images/admin/indicator.gif" alt="Working" border="0"/> Working...</span><!--
+--></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="comment_email"><b>Email</b></label></td><td class="fields">
+<%= text_field 'comment', 'email', :size => '58', :class => 'normal_ic_width' %><% if @comment.email and @comment.email != '' %>&nbsp;&nbsp;<span class="small gray"><!--
+--><span id="bl_email_add"<%= ' style="display: none;"' if email_listed %>><!--
+--><%= link_to_remote('Add to blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/add/' + CGI::escape(@comment.email),
+    :loading => "Element.hide('bl_email_add'); Element.show('bl_email_i');",
+    :complete => "Element.hide('bl_email_i'); Element.show('bl_email_remove');",
+    :confirm => "Are you sure you wish to blacklist this email?\n\nYou can undo this at any time."
+}) -%></span><!--
+--><span id="bl_email_remove"<%= ' style="display: none;"' if !email_listed %>><!--
+--><%= link_to_remote('Remove from blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/destroy/' + CGI::escape(@comment.email),
+    :loading => "Element.hide('bl_email_remove'); Element.show('bl_email_i');",
+    :complete => "Element.hide('bl_email_i'); Element.show('bl_email_add');",
+    :confirm => "Are you sure you wish to remove this item from the blacklist?\n\nYou can always add it back later."
+}) -%></span><!--
+--><span id="bl_email_i" style="display: none;"><img src="<%= Site.full_url %>/images/admin/indicator.gif" alt="Working" border="0"/> Working...</span><!--
+--></span><% end %></td></tr>
+
+<tr><td class="labels"><label for="comment_url">URL</label></td><td class="fields">
+<%= text_field 'comment', 'url', :size => '58', :class => 'normal_ic_width' %><% if @comment.url and @comment.url != '' %>&nbsp;&nbsp;<span class="small gray"><!--
+--><span id="bl_url_add"<%= ' style="display: none;"' if url_listed %>><!--
+--><%= link_to_remote('Add to blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/add/' + CGI::escape(@comment.url),
+    :loading => "Element.hide('bl_url_add'); Element.show('bl_url_i');",
+    :complete => "Element.hide('bl_url_i'); Element.show('bl_url_remove');",
+    :confirm => "Are you sure you wish to blacklist this URL?\n\nYou can undo this at any time."
+}) -%></span><!--
+--><span id="bl_url_remove"<%= ' style="display: none;"' if !url_listed %>><!--
+--><%= link_to_remote('Remove from blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/destroy/' + CGI::escape(@comment.url),
+    :loading => "Element.hide('bl_url_remove'); Element.show('bl_url_i');",
+    :complete => "Element.hide('bl_url_i'); Element.show('bl_url_add');",
+    :confirm => "Are you sure you wish to remove this item from the blacklist?\n\nYou can always add it back later."
+}) -%></span><!--
+--><span id="bl_url_i" style="display: none;"><img src="<%= Site.full_url %>/images/admin/indicator.gif" alt="Working" border="0"/> Working...</span><!--
+--></span><% end %></td></tr>
+
+<tr class="breaker"><td colspan="2">Content</td></tr>
+
+<% if get_pref('COMMENT_SUBJECTS') == 'yes' %><tr><td class="labels"><label for="comment_subject">Subject</label></td><td class="fields">
+<%= text_field 'comment', 'subject', :size => '58', :class => 'normal_i_width' %></td></tr><% end -%>
+
+<tr><td class="labels"><label for="comment_body_raw"><b>Body</b></label></td><td class="fields">
+<%= text_area 'comment', 'body_raw', :rows => '22', :cols => '59', :wrap => 'virtual', :class => 'normal_i_width' %><br/>
+<% if text_filter == 'markdown' -%>
+<span id="markdown_syntax_link" class="small gray"><b>Markdown</b> syntax enabled. See the <%= link_to('syntax rules', 'http://daringfireball.net/projects/markdown/syntax', :title => 'Syntax rules', :target => '_blank') %> for help.</span>
+<% elsif text_filter == 'textile' -%>
+<span id="textile_syntax_link" class="small gray"><b>Textile</b> syntax enabled. See the <%= link_to('syntax rules', 'http://www.textism.com/tools/textile/', :title => 'Syntax rules', :target => '_blank') %> for help.</span>
+<% elsif text_filter == 'convert line breaks' -%>
+<span id="clb_syntax_link" class="small gray"><b>Convert line breaks</b> mode enabled.</span>
+<% else -%>
+<span id="plaintext_syntax_link" class="small gray"><b>Plain text</b> mode enabled.</span>
+<% end -%>
+</td></tr>
+
+<tr class="breaker"><td colspan="2"><a class="section_toggler" href="javascript://" onclick="Element.toggle('dt1');Element.toggle('dt2');Element.toggle('dt3');Element.toggle('dt4');Element.toggle('dt_i1');Element.toggle('dt_i2');">Details&nbsp;&nbsp;<img id="dt_i1" src="<%= Site.full_url %>/images/admin/arrow_right.gif" border="0" alt=""/><img id="dt_i2" src="<%= Site.full_url %>/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a></td></tr>
+
+<tr id="dt1" style="display: none;"><td class="labels"><label for="comment_post">Post</label></td><td class="fields">
+<%= link_to((comment_post.title == '' ? '[Untitled]' : comment_post.title), Site.full_url + '/admin/posts/edit/' + comment_post.id.to_s, :title => 'Edit this post') %></td></tr>
+
+<tr id="dt2" style="display: none;"><td class="labels"><label for="comment_ip">IP address</label></td><td class="fields">
+<%= @comment.ip %>&nbsp;&nbsp;<span class="small gray"><!--
+--><span id="bl_ip_add"<%= ' style="display: none;"' if ip_listed %>><!--
+--><%= link_to_remote('Add to blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/add/' + CGI::escape(@comment.ip),
+    :loading => "Element.hide('bl_ip_add'); Element.show('bl_ip_i');",
+    :complete => "Element.hide('bl_ip_i'); Element.show('bl_ip_remove');",
+    :confirm => "Are you sure you wish to blacklist this IP address?\n\nYou can undo this at any time."
+}) -%></span><!--
+--><span id="bl_ip_remove"<%= ' style="display: none;"' if !ip_listed %>><!--
+--><%= link_to_remote('Remove from blacklist?',
+{
+    :url => Site.full_url + '/admin/blacklist/remote/destroy/' + CGI::escape(@comment.ip),
+    :loading => "Element.hide('bl_ip_remove'); Element.show('bl_ip_i');",
+    :complete => "Element.hide('bl_ip_i'); Element.show('bl_ip_add');",
+    :confirm => "Are you sure you wish to remove this item from the blacklist?\n\nYou can always add it back later."
+}) -%></span><!--
+--><span id="bl_ip_i" style="display: none;"><img src="<%= Site.full_url %>/images/admin/indicator.gif" alt="Working" border="0"/> Working...</span><!--
+--></span></td></tr>
+
+<tr id="dt3" style="display: none;"><td class="labels"><label for="comment_created_at"><b>Created at</b></label></td><td class="fields">
+<%= select_year(@comment.created_at, :prefix => 'comment', :field_name => 'created_at(1i)') %>
+<%= select_month(@comment.created_at, :prefix => 'comment', :field_name => 'created_at(2i)') %>
+<%= select_day(@comment.created_at, :prefix => 'comment', :field_name => 'created_at(3i)') %> &mdash; 
+<%= select_hour(@comment.created_at, :prefix => 'comment', :field_name => 'created_at(4i)') %> : 
+<%= select_minute(@comment.created_at, :prefix => 'comment', :field_name => 'created_at(5i)') %>
+</td></tr>
+
+<tr id="dt4" style="display: none;"><td class="labels"><label for="comment_modified_at"><b>Modified at</b></label></td><td class="fields">
+<%= select_year(Time.sl_local, :prefix => 'comment', :field_name => 'modified_at(1i)') %>
+<%= select_month(Time.sl_local, :prefix => 'comment', :field_name => 'modified_at(2i)') %>
+<%= select_day(Time.sl_local, :prefix => 'comment', :field_name => 'modified_at(3i)') %> &mdash; 
+<%= select_hour(Time.sl_local, :prefix => 'comment', :field_name => 'modified_at(4i)') %> : 
+<%= select_minute(Time.sl_local, :prefix => 'comment', :field_name => 'modified_at(5i)') %><br/><span class="small gray">This is automatically set to now, you may override it if you wish.</span>
+</td></tr>
+
+<!--[eoform:post]-->
+</table>

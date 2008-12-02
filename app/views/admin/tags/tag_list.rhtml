@@ -1,0 +1,46 @@
+<%= render :partial => 'admin/tags/subnav', :locals => {:np => false, :ep => false, :sh => false} %>
+
+<div id="header">
+	<h1>Your tags</h1>
+	<h2>Gray denotes tags not in use.</h2><br/>
+	<% if flash[:notice] %><div class="green flash"><b>Success:</b> <%= flash[:notice] %></div><% end %>
+</div>
+
+<table class="list" cellspacing="0" cellpadding="0">
+
+	<tr>
+		<th class="first_col"><%= link_to 'Name', @sorter.to_link('name') %><%= @sorter.di('name') %></th>
+		<th class="small_col"><%= link_to 'Posts tagged', @sorter.to_link('post_count') %><%= @sorter.di('post_count') %></th>
+		<th class="del_col">X</th>
+	</tr>
+	
+	<% c = 1 -%>
+	<% f = 1 -%>
+	<% for tag in @tags -%>
+		<tr class="<% if tag.post_count.to_i < 1 %>inactive <% end %><%= (c%2 == 0 ? 'alt_row ' : '') %><%= (f == 1 ? 'first_row' : '') %>">
+			<td class="first_col wider"><%= link_to tag.name, Site.full_url + '/admin/tags/edit/' + tag.id.to_s %></td>
+			<td class="small_col"><%= tag.post_count %></td>
+			<td class="del_col"><%= link_to 'X', Site.full_url + '/admin/tags/destroy/' + tag.id.to_s, :confirm => "You are about to delete this tag. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
+		</tr>
+		<% c = (c == 1 ? c+1 : c = 1) -%>
+		<% f = f+1 -%>
+	<% end -%>
+	<% unless @tags.length > 0 -%>
+	<tr class="first_row"><td class="first_col" colspan="3"><span class="gray">There are no tags at this time.</span></td></tr>
+	<% end -%>
+	<% if @tag_pages %>
+	<tr class="header">
+		<th colspan="3">
+			<div class="pagination">
+				<div class="prev">
+					<%= link_to '&laquo; Previous page', { :sort => params[:sort], :page => @tag_pages.current.previous } if @tag_pages.current.previous %>
+				&nbsp;</div>
+				<div class="next">&nbsp;
+					<%= link_to 'Next page &raquo;', { :sort => params[:sort], :page => @tag_pages.current.next } if @tag_pages.current.next %>
+				</div>
+			</div>
+		</th>
+	</tr>
+	<% end %>
+</table>
+<br/>

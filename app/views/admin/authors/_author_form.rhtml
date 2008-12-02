@@ -1,0 +1,22 @@
+<%= error_messages_for 'author' %>
+
+<table class="form" cellpadding="0" cellspacing="0">
+<!--[form:author]-->
+<tr class="breaker btop"><td colspan="2">Details</td></tr>
+
+<tr><td class="labels"><label for="author_is_active">Is Active?</label></td><td class="fields">
+<%= check_box 'author', 'is_active', :checked => (@author.is_active ? 'checked' : '') %><label for="author_is_active" class="left">&nbsp;<span class="small">If the box is checked, author can log into admin section</span></label></td></tr>
+
+<tr><td class="labels"><label for="author_name"><b>Name</b></label></td><td class="fields">
+<%= text_field 'author', 'name' %></td></tr>
+
+<tr><td class="labels"><label for="author_email"><b>Email</b></label></td><td class="fields">
+<%= text_field 'author', 'email' %></td></tr>
+
+<tr><td class="labels"><label for="author_password"><b>Password</b></label></td><td class="fields">
+<%= password_field 'author', 'password' %></td></tr>
+
+<tr><td class="labels"><label for="author_url">Website</label></td><td class="fields">
+<%= text_field 'author', 'url' %></td></tr>
+<!--[eoform:author]-->
+</table>

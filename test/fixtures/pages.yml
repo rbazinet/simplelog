@@ -1,0 +1,10 @@
+# $Id: pages.yml 300 2007-02-01 23:01:00Z garrett $
+
+page_1:
+  id: 1
+  permalink: about
+  body_raw: This is about my site.
+  body: This is about my site.
+  is_active: true
+  created_at: 2006-05-15 00:00:00
+  modified_at: 2006-05-15 00:00:00

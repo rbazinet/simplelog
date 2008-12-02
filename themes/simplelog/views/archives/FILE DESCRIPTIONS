@@ -1,0 +1,23 @@
+File list and information:
+------------------------------
+
+by_author.rhtml
+A list of posts by author.
+
+by_tag.rhtml
+A list of posts by tag.
+
+daily.rhtml
+All posts for a given day.
+
+list.rhtml
+The archives list, showing years, months and post titles.
+
+list_tags.rhtml
+A list of all active tags.
+
+monthly.rhtml
+All posts for a given month.
+
+yearly.rhtml
+All posts for a given year.

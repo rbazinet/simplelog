@@ -1,0 +1,17 @@
+<% if @posts and @posts.length > 0 -%>
+<%# there were posts returned by this search -%>
+
+<p>Here are all <%= pluralize(@posts.length, 'result') %> found for your search:</p>
+
+<ol>
+    <% for post in @posts -%>
+	<li><a href="<%= Post.permalink(post) %>" title="View &quot;<%= post.title %>&quot;"><%= post.title %></a>:&nbsp;&nbsp;<%= post_excerpt(post) %></li> 
+	<% end -%>
+</ol>
+
+<% else -%>
+<% # no results, return message %>
+
+There were no results, sorry. Try being more specific or a different query.
+
+<% end -%>

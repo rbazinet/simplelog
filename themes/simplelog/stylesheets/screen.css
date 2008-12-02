@@ -1,0 +1,252 @@
+/**
+ * =Body
+ ***************************/
+body {
+	font: normal 14px/22px Helvetica, Arial, Helvetica, Sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #4c4c4c;
+	background-color: #273d4a;
+	text-align: center;
+}
+
+/**
+ * =Layout
+ ***************************/
+#box {
+	margin: 0px auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 18px 0px 4px 18px;
+	background-color: #fff;
+	text-align: left;
+    width: 780px;
+}
+html>body #box {
+	width: 90%;
+	max-width: 820px;
+	padding-right: 18px;
+}
+#content {
+    width: 486px;
+	float: left;
+	margin-top: 18px;
+	margin-right: 18px;
+}
+html>body #content {
+    width: 502px;
+}
+#sidebar {
+    float: left;
+    width: 244px;
+    background-color: #f0f0f0;
+	padding: 18px 18px 2px 18px;
+	margin-top: 18px;
+	color: #777;
+}
+html>body #sidebar {
+    width: 260px;
+    padding-top: 2px;
+}
+#footer {
+	clear: both;
+	font-size: 11px;
+	color: #777;
+	padding-top: 10px;
+}
+#tags, #authors, #search, #search_results {
+	display: none;
+}
+
+/**
+ * =Search
+ ***************************/
+#search, #search_results {
+	padding-bottom: 6px;
+}
+input[id=q],
+#login input[type=text],
+#login input[type=password] {
+	font: normal 12px Arial, Verdana, Sans-serif;
+	padding: 2px;
+	width: 250px;
+	color: #48453c;
+}
+input[id=q] {
+    width: 170px;
+}
+#results {
+	display: inline;
+}
+#results ol li {
+	padding-bottom: 3px;
+}
+
+/**
+ * =Posts and comments
+ ***************************/
+.item_tags {
+    clear: both;
+}
+table#comment_form {
+    margin-top: 10px;
+}
+table#comment_form td {
+    padding: 2px 2px 2px 0;
+}
+table#comment_form td.labels {
+    width: 130px;
+}
+#comments h4 { }
+#comments .comment_content {
+    margin-top: 16px;
+    width: auto;
+}
+#comments .approval_required {
+    color: #209d20;
+    font-size: 12px;
+    padding: 10px;
+	border: 1px solid #209d20;
+}
+#comments .comment {
+	width: 100%;
+	clear: both;
+}
+#comments .comment_author {
+	font-weight: bold;
+}
+#comments .comment_details {
+	margin-bottom: -10px;
+	font-size: 12px;
+	color: gray;
+}
+#comments .gravatar {
+	float: right;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	margin: 4px 6px 0 0;
+	border: 1px solid #777;
+	background: #fff url(../images/default_gravatar.gif) no-repeat top left;
+}
+#comments h3#post {
+	clear: both;
+	padding-top: 30px;
+}
+
+/**
+ * =Headers
+ ***************************/
+#masthead {
+    padding: 24px 18px 13px 18px;
+	margin: -18px -18px 0 -18px;
+	background-color: #348fbc;
+}
+h1 {
+	font-size: 32px;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+}
+h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+h2 {
+	font-size: 12px;
+	padding-top: 2px;
+	color: #93c5de;
+	font-weight: normal;
+}
+h3 {
+    font-size: 20px;
+}
+h4, .item_meta {
+    font-size: 12px;
+    color: #777;
+    font-weight: normal;
+}
+.item_meta {
+    padding-bottom: 40px;
+}
+
+/**
+ * =Links
+ ***************************/
+a {
+	background-color: #f0f0f0;
+	padding: 2px 3px;
+	margin: 0 -2px;
+	color: #2B7598;
+}
+a:hover {
+	color: #000;
+}
+h1 a, h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+h1 a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/**
+ * =Misc
+ ***************************/
+br {
+	clear: both;
+}
+code {
+	font-family: Monaco, 'Courier New', Courier;
+	font-size: 12px;
+	color: #000;
+}
+blockquote {
+	color: #000;
+}
+
+/**
+ * =Errors
+ ***************************/
+.ror_error {
+	font-size: 10px;
+	color: red;
+}
+#comments .errorExplanation {
+    font-size: 12px;
+    line-height: 16px;
+    color: #bd0200;
+    padding: 10px;
+	border: 1px solid #bd0200;
+	margin: 5px 0;
+	background-color: #fffaf9;
+}
+#comments .errorExplanation h2 {
+	font-size: 14px;
+	margin-top: 0;
+	color: #bd0200;
+	font-weight: bold;
+}
+#comments .errorExplanation ul {
+	margin: 0;
+}
+
+/**
+ * =Warn Bad Browsers
+ ***************************/
+#warn_bad_browsers {
+	padding: 8px;
+	background-color: #990000;
+	width: 100%;
+	margin: 0;
+	font-size: 11px;
+	color: #fff;
+	border-bottom: 1px solid #000;
+}
+#warn_bad_browsers b {
+	font-weight: bold;
+}

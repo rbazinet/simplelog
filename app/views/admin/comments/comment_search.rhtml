@@ -1,0 +1,66 @@
+<%= render :partial => 'admin/comments/subnav', :locals => {:np => false, :ep => false} %>
+
+<div id="header">
+	<h1 class="skinny">Comment search results</h1>
+	<h2 class="fat">Gray denotes unapproved comments, click <img id="key_icon" class="light_check" src="<%= Site.full_url %>/images/admin/t.gif" title="Unapproved comment icon"/> icons to toggle.</h2>
+	<% if flash[:notice] %><div class="green flash"><b>Success:</b> <%= flash[:notice] %></div><% end -%>
+</div>
+
+<table class="list" cellspacing="0" cellpadding="0">
+
+	<tr>
+		<th class="first_col">Created</th>
+		<th>Commenter</th>
+		<th>Excerpt</th>
+		<th>Post</th>
+		<th class="approved_col"><img class="gray_check" src="<%= Site.full_url %>/images/admin/t.gif"/></th>
+		<th class="del_col">X</th>
+	</tr>
+	
+	<% c = 1 -%>
+	<% f = 1 -%>
+	<% for comment in @comments -%>
+	    <% comment_post = comment.post -%>
+		<tr class="<% if !comment.is_approved %>inactive <% end %><%= (c%2 == 0 ? 'alt_row ' : '') %><%= (f == 1 ? 'first_row' : '') %>">
+			<td class="first_col"><%= comment.created_at.strftime('%d %b, %Y') %></td>
+			<td><%= link_to (comment.name == '' ? '[Anonymous]' : comment.name), Site.full_url + '/admin/comments/edit/' + comment.id.to_s %></td>
+		    <td><%= truncate(Post.strip_html(comment.body), 40) %></td>
+			<td><%= (comment_post.title == '' ? '[Untitled]' : comment_post.title) %></td>
+			<td class="approved_col"><!--
+                --><span id="yca<%= comment.id.to_s %>"<% if !comment.is_approved %> style="display: none;"<% end %>><!--
+                --><%= link_to_remote(
+			    '<img id="ca' + comment.id.to_s + '" class="green_check" src="' + Site.full_url + '/images/admin/t.gif" title="This comment has been approved, click icon to unapprove"/>',
+			    {
+			        :url => Site.full_url + '/admin/comments/approve/' + comment.id.to_s + '/toggle',
+			        :loading => "Element.toggle('pca#{comment.id.to_s}'); Element.hide('yca#{comment.id.to_s}'); Element.hide('nca#{comment.id.to_s}');",
+			        :complete => "Element.hide('pca#{comment.id.to_s}'); Element.hide('yca#{comment.id.to_s}'); Element.show('nca#{comment.id.to_s}'); Element.addClassName('tca#{comment.id.to_s}', 'inactive')"
+			    },
+			    :class => 'no_bg'
+			    ) %></span><!--
+			    --><span id="nca<%= comment.id.to_s %>"<% if comment.is_approved %> style="display: none;"<% end %>><!--
+			    --><%= link_to_remote(
+			    '<img id="ca' + comment.id.to_s + '" class="light_check" src="' + Site.full_url + '/images/admin/t.gif" title="This comment has been not been approved, click icon to approve"/>',
+			    {
+			        :url => Site.full_url + '/admin/comments/approve/' + comment.id.to_s + '/toggle',
+			        :loading => "Element.toggle('pca#{comment.id.to_s}'); Element.hide('yca#{comment.id.to_s}'); Element.hide('nca#{comment.id.to_s}');",
+			        :complete => "Element.hide('pca#{comment.id.to_s}'); Element.show('yca#{comment.id.to_s}'); Element.hide('nca#{comment.id.to_s}'); Element.removeClassName('tca#{comment.id.to_s}', 'inactive')"
+			    },
+			    :class => 'no_bg'
+			    ) %></span><!--
+			--><span id="pca<%= comment.id.to_s %>" style="display: none;"><img src="<%= Site.full_url %>/images/admin/indicator.gif" alt="Working" border="0" class="center_indicator"/></span><!--
+			--></td>
+			<td class="del_col"><%= link_to 'X', Site.full_url + '/admin/comments/destroy/' + comment.id.to_s, :confirm => "You are about to delete this comment. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
+		</tr>
+		<% c = (c == 1 ? c+1 : c = 1) -%>
+		<% f = f+1 -%>
+	<% end -%>
+	<% unless @comments.length > 0 -%>
+	<tr class="first_row"><td class="first_col" colspan="6"><span class="gray">There were no comments matching your query.</span></td></tr>
+	<% end -%>
+	<tr class="header">
+		<th colspan="6">
+			&nbsp;
+		</th>
+	</tr>
+</table>
+<br />

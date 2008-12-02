@@ -1,0 +1,17 @@
+The includes directory is meant to store partials that you might reuse
+on several pages. This is where you might keep your sidebar partial or
+something similar.
+
+
+File list and information:
+------------------------------
+
+_browser_check.rhtml
+Checks to see which browser the user is using and shows messages based on
+that value (can be turned on via preferences as well).
+
+_footer.rhtml
+Common include that appears at the bottom of every page.
+
+_sidebar.rhtml
+Common include that appears on the side of every page.

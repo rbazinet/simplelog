@@ -1,0 +1,16 @@
+<div class="red"><% if flash[:notice] %><strong>Error:</strong> <%= flash[:notice] %><% else %>&nbsp;<% end %></div><br/>
+
+<% form_tag(Site.full_url + '/login/do', :id => 'login_form') do -%>
+  <table class="form thin" cellpadding="0" cellspacing="0">
+  <!--[form:post]-->
+  <tr class="breaker btop"><td colspan="2">Please log in</td></tr>
+
+  <tr><td class="labels"><label for="post_title"><b>Email</b></label></td><td class="fields">
+  <%= text_field 'author', 'email', :size => '58', :class => 'normal_il_width' %></td></tr>
+
+  <tr><td class="labels"><label for="post_title"><b>Password</b></label></td><td class="fields">
+  <%= password_field 'author', 'password', :size => '58', :class => 'normal_il_width' %></td></tr>
+  </table>
+  <div class="submit_area_l"><%= submit_tag 'Log in', :class => 'submit' %></div>
+<% end -%>
+<br/>

@@ -1,0 +1,37 @@
+<%  temp_repair = error_messages_for('page') || '' %>
+<%= temp_repair.gsub('Body raw', 'Body') %>
+
+<table class="form" cellpadding="0" cellspacing="0">
+<!--[form:page]-->
+<tr class="breaker btop"><td colspan="2">Linking</td></tr>
+
+<tr><td class="labels"><label for="page_the_link">URL for this page</label></td><td class="fields">
+<%= Site.full_url %>/pages/<span id="the_link" style="display: inline"><%= @page.permalink %></span></td></tr>
+
+<tr><td class="labels"><label for="page_permalink"><b>Link</b></label></td><td class="fields">
+<%= text_field 'page', 'permalink' %><br/><span class="small gray">Value will be converted to lowercase and sanitized.</span></td></tr>
+
+<tr class="breaker"><td colspan="2">Content</td></tr>
+
+<tr><td class="labels"><label for="page_title"><b>Title</b></label></td><td class="fields">
+<%= text_field 'page', 'title', :class => 'normal_i_width' %></td></tr>
+
+<tr><td class="labels"><label for="page_body_raw"><b>Body</b></label></td><td class="fields">
+<%= text_area 'page', 'body_raw', :rows => '28', :cols => '59', :wrap => 'virtual', :class => 'normal_i_width' %><br/><span id="markdown_syntax_link" class="small gray"<%= ' style="display: none;"' unless (params[:action] == 'page_new' and get_pref('TEXT_FILTER') == 'markdown') or (params[:action] != 'page_new' and @page.text_filter == 'markdown') %>><b>Markdown</b> syntax enabled. See the <%= link_to('syntax rules', 'http://daringfireball.net/projects/markdown/syntax', :title => 'Syntax rules', :target => '_blank') %> for help.</span>
+
+<span id="textile_syntax_link" class="small gray"<%= ' style="display: none;"' unless (params[:action] == 'page_new' and get_pref('TEXT_FILTER') == 'textile') or (params[:action] != 'page_new' and @page.text_filter == 'textile') %>><b>Textile</b> syntax enabled. See the <%= link_to('syntax rules', 'http://www.textism.com/tools/textile/', :title => 'Syntax rules', :target => '_blank') %> for help.</span>
+
+<span id="clb_syntax_link" class="small gray"<%= ' style="display: none;"' unless (params[:action] == 'page_new' and get_pref('TEXT_FILTER') == 'convert line breaks') or (params[:action] != 'page_new' and @page.text_filter == 'convert line breaks') %>><b>Convert line breaks</b> mode enabled.</span>
+
+<span id="plaintext_syntax_link" class="small gray"<%= ' style="display: none;"' unless (params[:action] == 'page_new' and get_pref('TEXT_FILTER') == 'plain text') or (params[:action] != 'page_new' and @page.text_filter == 'plain text') %>><b>Plain text</b> mode enabled.</span></td></tr>
+
+<tr class="breaker"><td colspan="2"><a class="section_toggler" href="javascript://" onclick="Element.toggle('dt1');Element.toggle('dt2');Element.toggle('dt_i1');Element.toggle('dt_i2');">Details&nbsp;&nbsp;<img id="dt_i1" src="<%= Site.full_url %>/images/admin/arrow_right.gif" border="0" alt=""/><img id="dt_i2" src="<%= Site.full_url %>/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a></td></tr>
+
+<tr id="dt1" style="display: none;"><td class="labels"><label for="page_is_active">Is active?</label></td><td class="fields">
+<%= check_box 'page', 'is_active', :checked => (@page.is_active ? 'checked' : '') %><label for="page_is_active" class="left">&nbsp;<span class="small gray">If the box is checked, the page is available on your site</span></label></td></tr>
+
+<tr id="dt2" style="display: none;"><td class="labels"><label for="post_text_filter"><b>Text filter</b></label></td><td class="fields">
+<%= select_tag 'page[text_filter]', create_filter_select_options(['markdown', 'textile', 'convert line breaks', 'plain text'], (params[:action] == 'page_new' ? get_pref('TEXT_FILTER') : @page.text_filter)), :onchange => "if (this.options[this.selectedIndex].value == 'markdown') { Element.show('markdown_syntax_link');Element.hide('textile_syntax_link');Element.hide('clb_syntax_link');Element.hide('plaintext_syntax_link'); } else if (this.options[this.selectedIndex].value == 'textile') { Element.hide('markdown_syntax_link');Element.show('textile_syntax_link');Element.hide('clb_syntax_link');Element.hide('plaintext_syntax_link'); } else if (this.options[this.selectedIndex].value == 'convert line breaks') { Element.hide('markdown_syntax_link');Element.hide('textile_syntax_link');Element.show('clb_syntax_link');Element.hide('plaintext_syntax_link'); } else { Element.hide('markdown_syntax_link');Element.hide('textile_syntax_link');Element.hide('clb_syntax_link');Element.show('plaintext_syntax_link'); }" %><br/><span class="small gray">Override your default text filter if you wish.</span></td></tr>
+
+<!--[eoform:post]-->
+</table>

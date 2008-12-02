@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  database: simplelog
+  username: simplelog
+  password: '!simplePASS'
+  host: localhost
+
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+#
+# DO NOT SET THIS DB TO THE SAME AS DEVELOPMENT OR PRODUCTION!
+test:
+  adapter: postgresql
+  database: simplelog_test
+  username: simplelog
+  password: '!simplePASS'
+  host: localhost
+
+# Unless you have a specific reason, leave this the same as 
+# development when installing SimpleLog, since this allows for
+# easy DB setup using rake (see README for installation
+# instructions)
+production:
+  development

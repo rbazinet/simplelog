@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="<%= Site.encoding %>"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= get_pref('LANGUAGE') %>">
+
+<%# please don't remove this! -%>
+<%= Site.powered_by_comment %>
+<%# please don't remove this! -%>
+	
+	<head>
+		<title><%= Site.site_name %>.<%= ' ' + $page_title %></title>
+		<meta name="robots" content="index,follow"/>
+		<meta name="mssmarttagspreventparsing" content="true"/>
+        <%= Site.default_meta_tags %>
+		<%= Site.icbm_meta_tag %>
+		<%= Site.esbn_meta_tag %>
+		<%= Site.issn_meta_tag %>
+		<%= auto_discovery_link_tag :rss, Site.rss_url, :title => 'Primary Feed' %>
+		<%= theme_stylesheet_link_tag 'screen.css', :title => Site.site_name, :media => 'screen' %>
+		<%= theme_javascript_include_tag 'site' %>
+		<%= theme_javascript_include_tag 'prototype' %>
+		<%= theme_javascript_include_tag 'lightbox' %>
+	</head>
+	
+	<body<%= Site.body_id %>>
+	    
+	    <%= render :partial => 'includes/browser_check' %>
+
+    	<div id="top"></div>
+    	
+    	<div id="box">
+    		
+    		<!-- masthead -->
+    		<div id="masthead">
+    		    <h1><%= Site.site_name_linked %></h1>
+    		    <h2><%= Site.slogan %></h2>
+    		</div>
+    		<!-- end masthead -->
+		
+		    <!-- content -->
+    		<div id="content">
+                <%= yield %>
+    		</div>
+    		<!-- end content -->
+		
+		    <!-- sidebar -->
+    		<div id="sidebar">
+                <%= render :partial => 'includes/sidebar' %>
+    	    </div>
+    	    <!-- end sidebar -->
+	    
+	        <!-- footer -->
+    	    <div id="footer">
+    	        <%= render :partial => 'includes/footer' %>
+    	    </div>
+    	    <!-- end footer -->
+    	    
+    	</div>
+	
+    	<%= Site.mint_tag %>
+	
+	</body>
+	
+<%# please don't remove this! -%>
+<%= Site.version_number_comment %>
+<%# please don't remove this! -%>
+
+</html>

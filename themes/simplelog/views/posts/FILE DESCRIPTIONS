@@ -1,0 +1,14 @@
+File list and information:
+------------------------------
+
+_item.rhtml
+A partial that displays one post item, without details. This is used when
+listing posts (such as on the main page or in monthly archives).
+
+_item_detailed.rhtml
+A partial that displays one post item with details. Use this for things like
+permalink pages, where you might want comments shown, et cetera.
+
+show.rhtml
+Displays one post item, using the _item_detailed.rhtml partial (this is a
+permalink view).

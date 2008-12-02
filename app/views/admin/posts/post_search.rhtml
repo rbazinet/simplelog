@@ -1,0 +1,39 @@
+<%= render :partial => 'admin/posts/subnav', :locals => {:np => false, :ep => false} %>
+
+<div id="header">
+	<h1 class="skinny">Post search results</h1>
+	<h2 class="fat">Gray denotes inactive posts, rows with <span class="future_key">lined background</span> are future posts.</h2><br/>
+	<% if flash[:notice] %><div class="green flash"><b>Success:</b> <%= flash[:notice] %></div><% end -%>
+</div>
+
+<table class="list" cellspacing="0" cellpadding="0">
+
+	<tr>
+		<th class="first_col">Created</th>
+		<th>Title</th>
+		<th>Excerpt</th>
+		<th class="del_col">X</th>
+	</tr>
+	
+	<% c = 1 -%>
+	<% f = 1 -%>
+	<% for post in @posts -%>
+		<tr class="<% if post.created_at > Time.sl_local %>futurepost <% end %><% if !post.is_active %>inactive <% end %><%= (c%2 == 0 ? 'alt_row ' : '') %><%= (f == 1 ? 'first_row' : '') %>">
+			<td class="first_col"><%= post.created_at.strftime('%d %b, %Y') %></td>
+			<td><%= link_to (post.title == '' ? '[Untitled]' : post.title), Site.full_url + '/admin/posts/edit/' + post.id.to_s %></td>
+			<td><%= truncate(Post.strip_html(post.body), 60) %></td>
+			<td class="del_col"><%= link_to 'X', Site.full_url + '/admin/posts/destroy/' + post.id.to_s, :confirm => "You are about to delete this post. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
+		</tr>
+		<% c = (c == 1 ? c+1 : c = 1) -%>
+		<% f = f+1 -%>
+	<% end -%>
+	<% unless @posts.length > 0 -%>
+	<tr class="first_row"><td class="first_col" colspan="4"><span class="gray">There were no posts matching your query.</span></td></tr>
+	<% end -%>
+	<tr class="header">
+		<th colspan="4">
+			&nbsp;
+		</th>
+	</tr>
+</table>
+<br />

@@ -1,0 +1,23 @@
+<%
+# you can customize these warnings if you wish or get rid of them
+# altogether by changing your preferences or emptying this file
+if get_pref('WARN_BAD_BROWSERS') == 'yes'
+	# run the check_browser method
+	check_browser
+	if @bad_browser
+	# this is IE (or possibly Opera), let's give them a warning
+-%>
+	<div id="warn_bad_browsers">
+    	<% if @is_opera -%>
+    	<% # this is an opera user -- customize the message for them %>
+    	<b>Hello, Opera user.</b> You should use <a href="http://getfirefox.com" title="Firefox">something better</a>.
+    	<% else -%>
+    	<% # this is an IE user -- customize the message for them %>
+    	<b>Hello, IE user.</b> You should use <a href="http://getfirefox.com" title="Firefox">something better</a>.
+    	<% end -%>
+	</div>
+<%
+	end
+end
+# done with the browser check
+-%>

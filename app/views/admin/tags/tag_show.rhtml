@@ -1,0 +1,20 @@
+<%= render :partial => 'admin/tags/subnav', :locals => {:np => false, :ep => false, :sh => true} %>
+
+<div id="header">
+	<h1>Posts tagged with "<%= @tag.name %>"</h1>
+	<h2>&nbsp;</h2><br/>
+</div>
+
+<table class="form" cellpadding="0" cellspacing="0">
+
+<tr class="breaker btop"><td colspan="2">List</td></tr>
+
+<tr><td class="labels"><label for="author_name">Posts</label></td><td class="fields">
+<%
+post_list = ''
+for post in @posts
+	post_list += (post_list != '' ? ', ' : '') + link_to(post.title, Site.full_url + '/admin/posts/edit/' + post.id.to_s, :title => 'Edit this post')
+end -%>
+<%= post_list == '' ? 'None.' : post_list %></td></tr>
+</table>
+<br/>

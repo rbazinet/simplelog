@@ -1,0 +1,50 @@
+<%= render :partial => 'admin/authors/subnav', :locals => {:np => false, :ep => false, :sh => false} %>
+
+<div id="header">
+	<h1>Authors</h1>
+	<h2>Gray denotes inactive authors.</h2><br/>
+	<% if flash[:notice] %><div class="<% if flash[:notice].index('Failed:') %>red<% else %>green<% end %> flash"><%= flash[:notice] %></div><% end %>
+</div>
+
+<table class="list" cellspacing="0" cellpadding="0">
+
+	<tr>
+		<th class="first_col"><%= link_to 'Created', @sorter.to_link('created_at') %><%= @sorter.di('created_at') %></th>
+		<th><%= link_to 'Name', @sorter.to_link('name') %><%= @sorter.di('name') %></th>
+		<th><%= link_to 'Email', @sorter.to_link('email') %><%= @sorter.di('email') %></th>
+		<th class="small_col"><%= link_to 'Posts', @sorter.to_link('total_posts') %><%= @sorter.di('total_posts') %></th>
+		<th class="del_col">X</th>
+	</tr>
+	
+	<% c = 1 -%>
+	<% f = 1 -%>
+	<% for author in @authors -%>
+		<tr class="<% if !author.is_active %>inactive <% end %><%= (c%2 == 0 ? 'alt_row ' : '') %><%= (f == 1 ? 'first_row' : '') %>">
+			<td class="first_col"><%= author.created_at.strftime('%d %b, %Y') %></td>
+			<td><%= link_to author.name, Site.full_url + '/admin/authors/edit/' + author.id.to_s %></td>
+			<td><%= author.email %></td>
+			<td class="small_col"><%= author.total_posts %></td>
+			<td class="del_col"><%= link_to 'X', Site.full_url + '/admin/authors/destroy/' + author.id.to_s, :confirm => "WARNING:\n\nDeleting this author will also delete ALL POSTS written by this author.\n\nIf you wish to keep the author\'s posts but remove their admin access, simply hit cancel and mark them inactive.\n\nYou are about to delete this author and all of their posts. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
+		</tr>
+		<% c = (c == 1 ? c+1 : c = 1) -%>
+		<% f = f+1 -%>
+	<% end -%>
+	<% unless @authors.length > 0 -%>
+	<tr class="first_row"><td class="first_col" colspan="5"><span class="gray">There are no authors at this time.</span></td></tr>
+	<% end -%>
+	<% if @author_pages %>
+	<tr class="header">
+		<th colspan="5">
+			<div class="pagination">
+				<div class="prev">
+					<%= link_to '&laquo; Previous page', { :sort => params[:sort], :page => @author_pages.current.previous } if @author_pages.current.previous %>
+				&nbsp;</div>
+				<div class="next">&nbsp;
+					<%= link_to 'Next page &raquo;', { :sort => params[:sort], :page => @author_pages.current.next } if @author_pages.current.next %>
+				</div>
+			</div>
+		</th>
+	</tr>
+	<% end %>
+</table>
+<br/>

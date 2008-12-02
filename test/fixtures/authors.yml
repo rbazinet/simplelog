@@ -1,0 +1,30 @@
+# $Id: authors.yml 296 2007-01-30 22:31:51Z garrett $
+
+# passwords are all "test"
+
+garrett:
+  id: 1
+  created_at: '2006-05-01 00:00:00'
+  modified_at: '2006-05-01 00:00:00'
+  email: garrett@email.com
+  hashed_pass: a94a8fe5ccb19ba61c4c0873d391e987982fbbd3
+  name: garrett
+  is_active: true
+  
+dudeous:
+  id: 2
+  created_at: '2006-05-01 00:00:00'
+  modified_at: '2006-05-01 00:00:00'
+  email: dudeous@email.com
+  hashed_pass: a94a8fe5ccb19ba61c4c0873d391e987982fbbd3
+  name: dudeous
+  is_active: false
+  
+guy:
+  id: 3
+  created_at: '2006-05-01 00:00:00'
+  modified_at: '2006-05-01 00:00:00'
+  email: guy@email.com
+  hashed_pass: a94a8fe5ccb19ba61c4c0873d391e987982fbbd3
+  name: guy
+  is_active: true

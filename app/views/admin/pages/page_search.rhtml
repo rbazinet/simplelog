@@ -1,0 +1,41 @@
+<%= render :partial => 'admin/pages/subnav', :locals => {:np => false, :ep => false} %>
+
+<div id="header">
+	<h1>Page search results</h1>
+	<h2>Gray denotes inactive pages.</h2><br/>
+	<% if flash[:notice] %><div class="green flash"><%= flash[:notice] %></div><% end %>
+</div>
+
+<table class="list" cellspacing="0" cellpadding="0">
+	
+	<tr>
+		<th class="first_col">Created</th>
+		<th>Title</th>
+		<th>Excerpt</th>
+		<th>Link</th>
+		<th class="del_col">X</th>
+	</tr>
+	
+	<% c = 1 -%>
+	<% f = 1 -%>
+	<% for page in @pages -%>
+		<tr class="<% if !page.is_active %>inactive <% end %><%= (c%2 == 0 ? 'alt_row ' : '') %><%= (f == 1 ? 'first_row' : '') %>">
+			<td class="first_col"><%= page.created_at.strftime('%d %b, %Y') %></td>
+			<td><%= link_to (page.title == '' ? '[Untitled]' : page.title), Site.full_url + '/admin/pages/edit/' + page.id.to_s %></td>
+			<td><%= truncate(Post.strip_html(page.body), 50) %></td>
+			<td><%= page.permalink %></td>
+			<td class="del_col"><%= link_to 'X', Site.full_url + '/admin/pages/destroy/' + page.id.to_s, :confirm => "You are about to delete this page. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
+		</tr>
+		<% c = (c == 1 ? c+1 : c = 1) -%>
+		<% f = f+1 -%>
+	<% end -%>
+	<% unless @pages.length > 0 -%>
+	<tr class="first_row"><td class="first_col" colspan="5"><span class="gray">There were no pages matching your query.</span></td></tr>
+	<% end -%>
+	<tr class="header">
+		<th colspan="5">
+			&nbsp;
+		</th>
+	</tr>
+</table>
+<br/>

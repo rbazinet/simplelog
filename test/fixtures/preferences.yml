@@ -1,0 +1,295 @@
+# $Id: preferences.yml 300 2007-02-01 23:01:00Z garrett $
+
+pref_1:
+  id: 1
+  nice_name: ''
+  description: ''
+  name: domain
+  value: 'dev.simplelog.net'
+
+pref_2:
+  id: 2
+  nice_name: ''
+  description: ''
+  name: site_name
+  value: 'My Amazing Weblog'
+
+pref_3:
+  id: 3
+  nice_name: ''
+  description: ''
+  name: slogan
+  value: 'My writing is gold!'
+
+pref_4:
+  id: 4
+  nice_name: ''
+  description: ''
+  name: site_description
+  value: 'The weblog of Someone.'
+
+pref_5:
+  id: 5
+  nice_name: ''
+  description: ''
+  name: site_primary_author
+  value: 'Someone'
+
+pref_6:
+  id: 6
+  nice_name: ''
+  description: ''
+  name: author_gender
+  value: 'male'
+
+pref_7:
+  id: 7
+  nice_name: ''
+  description: ''
+  name: author_email
+  value: 'me@someone.com'
+
+pref_8:
+  id: 8
+  nice_name: ''
+  description: ''
+  name: email_subject
+  value: 'About your site'
+
+pref_9:
+  id: 9
+  nice_name: ''
+  description: ''
+  name: error_page_title
+  value: '404'
+
+pref_10:
+  id: 10
+  nice_name: ''
+  description: ''
+  name: search_results
+  value: '20'
+
+pref_11:
+  id: 11
+  nice_name: ''
+  description: ''
+  name: items_on_index
+  value: '5'
+
+pref_12:
+  id: 12
+  nice_name: ''
+  description: ''
+  name: items_in_feed
+  value: '10'
+
+pref_13:
+  id: 13
+  nice_name: ''
+  description: ''
+  name: offset
+  value: '0'
+
+pref_14:
+  id: 14
+  nice_name: ''
+  description: ''
+  name: nice_dashes
+  value: 'yes'
+
+pref_15:
+  id: 15
+  nice_name: ''
+  description: ''
+  name: warn_bad_browsers
+  value: 'no'
+
+pref_16:
+  id: 16
+  nice_name: ''
+  description: ''
+  name: show_author_of_post
+  value: 'yes'
+
+pref_17:
+  id: 17
+  nice_name: ''
+  description: ''
+  name: ping_by_default
+  value: 'yes'
+
+pref_18:
+  id: 18
+  nice_name: ''
+  description: ''
+  name: preview_by_default
+  value: 'yes'
+
+pref_19:
+  id: 19
+  nice_name: ''
+  description: ''
+  name: new_post_by_default
+  value: 'no'
+
+pref_20:
+  id: 20
+  nice_name: ''
+  description: ''
+  name: time_format
+  value: '%I:%M %p'
+
+pref_21:
+  id: 21
+  nice_name: ''
+  description: ''
+  name: date_format
+  value: '%B %d, %Y'
+
+pref_22:
+  id: 22
+  nice_name: ''
+  description: ''
+  name: copyright_year
+  value: '2007'
+
+pref_23:
+  id: 23
+  nice_name: ''
+  description: ''
+  name: icbm
+  value: ''
+
+pref_24:
+  id: 24
+  nice_name: ''
+  description: ''
+  name: issn
+  value: ''
+
+pref_25:
+  id: 25
+  nice_name: ''
+  description: ''
+  name: esbn
+  value: ''
+
+pref_26:
+  id: 26
+  nice_name: ''
+  description: ''
+  name: encoding
+  value: 'utf-8'
+
+pref_27:
+  id: 27
+  nice_name: ''
+  description: ''
+  name: language
+  value: 'en'
+
+pref_28:
+  id: 28
+  nice_name: ''
+  description: ''
+  name: mint_dir
+  value: ''
+
+pref_29:
+  id: 29
+  nice_name: ''
+  description: ''
+  name: delicious_username
+  value: ''
+
+pref_30:
+  id: 30
+  nice_name: ''
+  description: ''
+  name: rss_url
+  value: ''
+
+pref_31:
+  id: 31
+  nice_name: ''
+  description: ''
+  name: text_filter
+  value: 'markdown'
+
+pref_32:
+  id: 32
+  nice_name: ''
+  description: ''
+  name: smarty_pants
+  value: 'no'
+
+pref_33:
+  id: 33
+  nice_name: ''
+  description: ''
+  name: custom_field_1_on
+  value: 'no'
+
+pref_34:
+  id: 34
+  nice_name: ''
+  description: ''
+  name: custom_field_2_on
+  value: 'no'
+
+pref_35:
+  id: 35
+  nice_name: ''
+  description: ''
+  name: custom_field_3_on
+  value: 'no'
+
+pref_36:
+  id: 36
+  nice_name: ''
+  description: ''
+  name: custom_field_1
+  value: ''
+
+pref_37:
+  id: 37
+  nice_name: ''
+  description: ''
+  name: custom_field_2
+  value: ''
+
+pref_38:
+  id: 38
+  nice_name: ''
+  description: ''
+  name: custom_field_3
+  value: ''
+
+pref_39:
+  id: 39
+  nice_name: ''
+  description: ''
+  name: extended_link_text
+  value: 'Post continues, click to read more...'
+
+pref_40:
+  id: 40
+  nice_name: ''
+  description: ''
+  name: simple_titles
+  value: 'no'
+
+pref_41:
+  id: 41
+  nice_name: ''
+  description: ''
+  name: current_theme
+  value: 'default'
+
+pref_42:
+  id: 42
+  nice_name: ''
+  description: ''
+  name: encode_entities
+  value: 'no'
