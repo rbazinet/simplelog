@@ -1,0 +1,28 @@
+SimpleLog is a simple Ruby on Rails weblog application with support for comments, tagging, archiving and quick-search. It features a simple admin section with authentication and a focus on writing over all else. 
+
+SimpleLog was written by Garrett Murray, maintained by Rob Bazinet and released under the GPL license. In short, SimpleLog is free. Free as in freedom. See the License for more. 
+
+Installation
+------------
+
+1. Get a copy of the source from the Git repository, chmod files:
+
+	chmod 755 log/
+	chmod 755 theme_backup/
+	chmod 755 public/dispatch.fcgi
+
+2. Set up databases and configure your settings in config/database.yml
+
+2a. A note on databases: You should use the same database for development and production in SimpleLog, unless you plan to make significant changes to the app and you want to truly run in development mode. You should create a test database if you wish to run the tests to make sure SimpleLog is working correctly before running it (this is recommended but isn't required).
+
+2b. If you're going to use PostgreSQL, you should use the database_postgres.yml file and rename it database.yml instead. It has some default info for connecting to PostgreSQL.
+
+3. Configure two settings in config/server.rb
+
+4. Run the SimpleLog migration task to import the DB schema:
+	rake simplelog:install
+	
+Or, if you want to be safe and run tests, make sure your test DB exists and then run the following rake task instead:
+	rake simplelog:install:tested
+	
+5. Start your server (if running locally).
